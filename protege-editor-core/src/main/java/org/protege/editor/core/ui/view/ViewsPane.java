@@ -1,6 +1,7 @@
 package org.protege.editor.core.ui.view;
 
 import org.coode.mdock.*;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.prefs.Preferences;
 import org.protege.editor.core.prefs.PreferencesManager;
 import org.protege.editor.core.ui.workspace.Workspace;
@@ -16,6 +17,8 @@ import java.io.*;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -28,6 +31,10 @@ import java.util.Set;
  */
 public class ViewsPane extends JPanel {
 
+    private static final Pattern COMPONENT_LABEL_PATTERN = Pattern.compile(
+            "(<Component\\s+label\\s*=\\s*\")([^\"]*)(\"\\s*>\\s*<Property\\s+id\\s*=\\s*\"pluginId\"\\s+value\\s*=\\s*\")([^\"]*)(\"\\s*/>)",
+            Pattern.DOTALL
+    );
 
     private final Logger logger = LoggerFactory.getLogger(ViewsPane.class);
 
@@ -51,14 +58,15 @@ public class ViewsPane extends JPanel {
         Reader reader = null;
         if (serialisedViews.length() != 0 && !memento.isForceReset()) {
             // Got a previous config and not trying to reset
-            reader = new StringReader(serialisedViews);
+            reader = new StringReader(localizeViewConfig(serialisedViews));
         }
         else {
             // Try and restore
             if(memento.getInitialCongigFileURL() != null) {
                 // No file, so default to default one :)
                 try {
-                    reader = new InputStreamReader(new BufferedInputStream(memento.getInitialCongigFileURL().openStream()));
+                    String config = readFully(new InputStreamReader(new BufferedInputStream(memento.getInitialCongigFileURL().openStream())));
+                    reader = new StringReader(localizeViewConfig(config));
                 }
                 catch (IOException e) {
                     logger.error("An error occurred whilst loading a views configuration file: {}", e);
@@ -206,5 +214,122 @@ public class ViewsPane extends JPanel {
      */
     public String readViewLayout() {
         return getViewLayoutPreferences().getString(getLayoutPreferencesKey(), "");
+    }
+
+    private static String localizeViewConfig(String config) {
+        if (config == null || config.isEmpty()) {
+            return config;
+        }
+        Matcher matcher = COMPONENT_LABEL_PATTERN.matcher(config);
+        StringBuffer result = new StringBuffer();
+        while (matcher.find()) {
+            String componentLabel = matcher.group(2);
+            String pluginId = matcher.group(4);
+            String resolved = resolveComponentLabel(componentLabel, pluginId);
+            matcher.appendReplacement(result, matcher.group(1) + escapeXmlAttribute(resolved) + matcher.group(3) + pluginId + matcher.group(5));
+        }
+        matcher.appendTail(result);
+        return result.toString();
+    }
+
+    private static String resolveComponentLabel(String labelValue, String pluginId) {
+        if (labelValue == null || pluginId == null) {
+            return "";
+        }
+        String protegePropertyKey = null;
+        if (labelValue.startsWith("@") && labelValue.length() > 1) {
+            protegePropertyKey = labelValue.substring(1);
+        }
+        else {
+            protegePropertyKey = resolveLegacyLabelKey(labelValue, pluginId);
+        }
+        if (protegePropertyKey == null) {
+            return labelValue;
+        }
+        String resolved = ProtegeProperties.getInstance().getProperty(protegePropertyKey);
+        return resolved != null ? resolved : labelValue;
+    }
+
+    private static String resolveLegacyLabelKey(String labelValue, String pluginId) {
+        if ("org.protege.editor.owl.OWLMembersList".equals(pluginId) && "Individuals".equals(labelValue)) {
+            return "i18n.owl.label.directInstances";
+        }
+        if ("org.protege.editor.owl.OWLInferredMembersList".equals(pluginId) && "Individuals (Inferred)".equals(labelValue)) {
+            return "i18n.owl.label.directInstancesInferred";
+        }
+        if ("org.protege.editor.owl.OWLIndividualsList".equals(pluginId) && "Individuals".equals(labelValue)) {
+            return "i18n.owl.label.individuals";
+        }
+        switch (labelValue) {
+            case "Classes":
+                return "i18n.owl.label.classes";
+            case "Object properties":
+                return "i18n.owl.label.objectProperties";
+            case "Data properties":
+                return "i18n.owl.label.dataProperties";
+            case "Annotation properties":
+                return "i18n.owl.label.annotationProperties";
+            case "Datatypes":
+                return "i18n.owl.label.datatypes";
+            case "Selected entity":
+                return "i18n.owl.label.selectedEntity";
+            case "Class hierarchy":
+                return "i18n.owl.label.classHierarchy";
+            case "Class hierarchy (inferred)":
+                return "i18n.owl.label.classHierarchyInferred";
+            case "Object property hierarchy":
+                return "i18n.owl.label.objectPropertyHierarchy";
+            case "Data property hierarchy":
+                return "i18n.owl.label.dataPropertyHierarchy";
+            case "Annotation property hierarchy":
+                return "i18n.owl.label.annotationPropertyHierarchy";
+            case "Direct instances":
+                return "i18n.owl.label.directInstances";
+            case "Direct instances (inferred)":
+                return "i18n.owl.label.directInstancesInferred";
+            case "Ontology imports":
+                return "i18n.owl.label.importedOntologies";
+            case "Ontology Prefixes":
+                return "i18n.owl.label.ontologyPrefixes";
+            case "Ontology metrics":
+            case "Metrics":
+                return "i18n.owl.label.ontologyMetrics";
+            case "General class axioms":
+                return "i18n.owl.label.generalClassAxioms";
+            case "Annotations":
+                return "i18n.owl.label.annotations";
+            case "Usage":
+                return "i18n.owl.label.usage";
+            case "Characteristics":
+                return "i18n.owl.label.characteristics";
+            case "Description":
+                return "i18n.owl.label.description";
+            case "Relationships":
+                return "i18n.owl.label.propertyAssertions";
+            case "Inferred axioms":
+                return "i18n.owl.label.inferredAxioms";
+            default:
+                return null;
+        }
+    }
+
+    private static String readFully(Reader reader) throws IOException {
+        StringWriter writer = new StringWriter();
+        char[] buffer = new char[8192];
+        int read;
+        while ((read = reader.read(buffer)) != -1) {
+            writer.write(buffer, 0, read);
+        }
+        return writer.toString();
+    }
+
+    private static String escapeXmlAttribute(String value) {
+        if (value == null) {
+            return "";
+        }
+        return value.replace("&", "&amp;")
+                    .replace("\"", "&quot;")
+                    .replace("<", "&lt;")
+                    .replace(">", "&gt;");
     }
 }

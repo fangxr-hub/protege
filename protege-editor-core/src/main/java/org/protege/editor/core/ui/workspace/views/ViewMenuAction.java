@@ -1,5 +1,6 @@
 package org.protege.editor.core.ui.workspace.views;
 
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ui.action.ProtegeDynamicAction;
 import org.protege.editor.core.ui.view.ViewComponentPlugin;
 import org.protege.editor.core.ui.view.ViewComponentPluginLoader;
@@ -41,7 +42,10 @@ public class ViewMenuAction extends ProtegeDynamicAction {
         // First categorise them
 
         Map<String, List<ViewComponentPlugin>> categoriesMap = new HashMap<>();
-        String miscellaneousKey = "Miscellaneous";
+        String miscellaneousKey = Objects.requireNonNullElse(
+                ProtegeProperties.getInstance().getProperty("i18n.window.views.miscellaneousCategory"),
+                "Miscellaneous"
+        );
 
         ViewComponentPluginLoader loader = new ViewComponentPluginLoader(workspace);
         for (ViewComponentPlugin plugin : loader.getPlugins()) {
@@ -69,8 +73,12 @@ public class ViewMenuAction extends ProtegeDynamicAction {
         List<String> categories = new ArrayList<>();
         categories.addAll(categoriesMap.keySet());
         Collections.sort(categories);
+        String categoryMenuFormat = Objects.requireNonNullElse(
+                ProtegeProperties.getInstance().getProperty("i18n.window.views.categoryMenuFormat"),
+                "%s views"
+        );
         for (String category : categories) {
-            JMenu subMenu = new JMenu(category + " views");
+            JMenu subMenu = new JMenu(String.format(categoryMenuFormat, category));
             viewMenu.add(subMenu);
             List<ViewComponentPlugin> viewPlugins = new ArrayList<>(categoriesMap.get(category));
             // Sort them

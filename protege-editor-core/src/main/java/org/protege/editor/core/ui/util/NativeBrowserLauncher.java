@@ -1,6 +1,7 @@
 package org.protege.editor.core.ui.util;
 
 import org.protege.editor.core.platform.OSUtils;
+import org.protege.editor.core.ProtegeProperties;
 
 import javax.swing.*;
 import java.lang.reflect.Method;
@@ -19,8 +20,6 @@ import java.lang.reflect.Method;
  * Date: Aug 12, 2008<br><br>
  */
 public class NativeBrowserLauncher {
-
-    private static final String errMsg = "Sorry, could not launch web browser";
 
     public static void openURL(String url) {
         try {
@@ -47,7 +46,10 @@ public class NativeBrowserLauncher {
             }
         }
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null, errMsg + ":\n" + e.getLocalizedMessage());
+            JOptionPane.showMessageDialog(null,
+                                          ProtegeProperties.getInstance().getProperty("i18n.core.browser.launchErrorMessage") + ":\n" + e.getLocalizedMessage(),
+                                          ProtegeProperties.getInstance().getProperty("i18n.dialog.errorTitle"),
+                                          JOptionPane.ERROR_MESSAGE);
         }
     }
 }

@@ -2,27 +2,27 @@
 <layout>
     <VSNode splits="0.375 0.625">
         <CNode>
-            <Component label="Classes">
+            <Component label="@i18n.owl.label.classes">
                 <Property id="pluginId" value="org.protege.editor.owl.OWLAssertedClassHierarchy"/>
             </Component>
-            <Component label="Object properties">
+            <Component label="@i18n.owl.label.objectProperties">
                 <Property id="pluginId" value="org.protege.editor.owl.OWLObjectPropertyTree"/>
             </Component>
-            <Component label="Data properties">
+            <Component label="@i18n.owl.label.dataProperties">
                 <Property id="pluginId" value="org.protege.editor.owl.OWLDataPropertyTree"/>
             </Component>
-            <Component label="Annotation properties">
+            <Component label="@i18n.owl.label.annotationProperties">
                 <Property id="pluginId" value="org.protege.editor.owl.OWLAnnotationPropertyTree"/>
             </Component>
-            <Component label="Datatypes">
+            <Component label="@i18n.owl.label.datatypes">
                 <Property id="pluginId" value="org.protege.editor.owl.OWLDatatypeList"/>
             </Component>
-            <Component label="Individuals">
+            <Component label="@i18n.owl.label.individuals">
                 <Property id="pluginId" value="org.protege.editor.owl.OWLIndividualsList"/>
             </Component>
         </CNode>
         <CNode>
-            <Component label="Selected entity">
+            <Component label="@i18n.owl.label.selectedEntity">
                 <Property id="pluginId" value="org.protege.editor.owl.SelectedEntityView"/>
             </Component>
         </CNode>

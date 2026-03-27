@@ -1,5 +1,6 @@
 package org.protege.editor.owl.ui;
 
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ui.util.AugmentedJTextField;
 import org.protege.editor.core.ui.util.InputVerificationStatusChangedListener;
 import org.protege.editor.core.ui.util.VerifiedInputEditor;
@@ -152,7 +153,7 @@ public class OWLEntityCreationPanel<T extends OWLEntity> extends JPanel implemen
 
 
         rowIndex++;
-        holder.add(new JButton(new AbstractAction("New entity options...") {
+        holder.add(new JButton(new AbstractAction(ProtegeProperties.getInstance().getProperty("i18n.owl.entityCreation.newEntityOptions")) {
             public void actionPerformed(ActionEvent e) {
                 showEntityCreationPreferences();
             }
@@ -180,11 +181,15 @@ public class OWLEntityCreationPanel<T extends OWLEntity> extends JPanel implemen
     private void showEntityCreationPreferences() {
         try {
             NewEntitiesPreferencesPanel panel = new NewEntitiesPreferencesPanel();
-            panel.setup("Entity creation preferences", owlEditorKit);
+            panel.setup(ProtegeProperties.getInstance().getProperty("i18n.owl.entityCreation.preferences.title"), owlEditorKit);
 
             panel.initialise();
 
-            int ret = JOptionPane.showConfirmDialog(this, panel, "Entity Creation Preferences", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            int ret = JOptionPane.showConfirmDialog(this,
+                                                    panel,
+                                                    ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.entityCreationPreferences.title"),
+                                                    JOptionPane.OK_CANCEL_OPTION,
+                                                    JOptionPane.PLAIN_MESSAGE);
             if (ret == JOptionPane.OK_OPTION) {
                 panel.applyChanges();
                 update();

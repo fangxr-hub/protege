@@ -2,6 +2,7 @@ package org.protege.editor.core.ui.view;
 
 import org.coode.mdock.NodePanel;
 import org.protege.editor.core.ProtegeManager;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ui.action.ProtegeAction;
 import org.protege.editor.core.ui.workspace.WorkspaceFrame;
 
@@ -50,7 +51,11 @@ public class CaptureScreenshotAction extends ProtegeAction {
         }
         Component currentFocusOwner = currentView;
         WorkspaceFrame frame = ProtegeManager.getInstance().getFrame(getWorkspace());
-        int ret = JOptionPane.showConfirmDialog(frame, captureTypePanel, "Capture type", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        int ret = JOptionPane.showConfirmDialog(frame,
+                                               captureTypePanel,
+                                               ProtegeProperties.getInstance().getProperty("i18n.core.captureScreenshot.captureTypeTitle"),
+                                               JOptionPane.OK_CANCEL_OPTION,
+                                               JOptionPane.PLAIN_MESSAGE);
         if (ret != JOptionPane.OK_OPTION) {
             return;
         }
@@ -59,8 +64,8 @@ public class CaptureScreenshotAction extends ProtegeAction {
         if(component == null) {
             Toolkit.getDefaultToolkit().beep();
             JOptionPane.showMessageDialog(frame,
-                                          "Please focus the view that you want to capture",
-                                          "No view focused",
+                                          ProtegeProperties.getInstance().getProperty("i18n.core.captureScreenshot.noViewFocusedMessage"),
+                                          ProtegeProperties.getInstance().getProperty("i18n.core.captureScreenshot.noViewFocusedTitle"),
                                           JOptionPane.WARNING_MESSAGE);
             return;
         }

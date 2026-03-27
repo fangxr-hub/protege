@@ -1,6 +1,7 @@
 package org.protege.editor.owl.ui.selector;
 
 import org.protege.editor.core.Disposable;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ui.list.RemovableObjectList;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.ui.renderer.OWLCellRenderer;
@@ -106,12 +107,12 @@ public class OWLEntitySelectorPanel extends JPanel implements OWLObjectSelector<
 
 
         tabbedPane = new JTabbedPane();
-        tabbedPane.add("Classes", classSelectorPanel);
-        tabbedPane.add("Object properties", objectPropertySelectorPanel);
-        tabbedPane.add("Data properties", dataPropertySelectorPanel);
-        tabbedPane.add("Individuals", individualSelectorPanel);
-        tabbedPane.add("Datatypes", datatypeSelectorPanel);
-        tabbedPane.add("Annotation Properties", annotationPropertySelectorPanel);
+        tabbedPane.add(ProtegeProperties.getInstance().getProperty("i18n.owl.label.classes", "Classes"), classSelectorPanel);
+        tabbedPane.add(ProtegeProperties.getInstance().getProperty("i18n.owl.label.objectProperties", "Object properties"), objectPropertySelectorPanel);
+        tabbedPane.add(ProtegeProperties.getInstance().getProperty("i18n.owl.label.dataProperties", "Data properties"), dataPropertySelectorPanel);
+        tabbedPane.add(ProtegeProperties.getInstance().getProperty("i18n.owl.label.individuals", "Individuals"), individualSelectorPanel);
+        tabbedPane.add(ProtegeProperties.getInstance().getProperty("i18n.owl.label.datatypes", "Datatypes"), datatypeSelectorPanel);
+        tabbedPane.add(ProtegeProperties.getInstance().getProperty("i18n.owl.label.annotationProperties", "Annotation Properties"), annotationPropertySelectorPanel);
 
         if (!multiselect){
             setLayout(new BorderLayout());
@@ -218,7 +219,7 @@ public class OWLEntitySelectorPanel extends JPanel implements OWLObjectSelector<
 
 
     public String getTitle() {
-        return "Select signature";
+        return ProtegeProperties.getInstance().getProperty("i18n.owl.selector.selectSignature", "Select signature");
     }
 
     public void addSelectedItems() {

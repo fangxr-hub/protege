@@ -30,6 +30,10 @@ import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.*;
@@ -252,6 +256,7 @@ public class ProtegeApplication implements BundleActivator {
         try {
             PluginUtilities.getInstance().initialise(context);
             loadDefaults();
+            loadLocalization();
             initializeLookAndFeel();
             setupExceptionHandler();
             processCommandLineURIs();  // plugins may set arguments
@@ -282,6 +287,37 @@ public class ProtegeApplication implements BundleActivator {
         ProtegeProperties.getInstance().put(ProtegeProperties.ONTOLOGY_VIEW_CATEGORY, "Ontology");
         ProtegeProperties.getInstance().put(ProtegeProperties.QUERY_VIEW_CATEGORY, "Query");
         ProtegeProperties.getInstance().put(ProtegeProperties.DIFF_VIEW_CATEGORY, "Ontology comparison");
+    }
+
+    private static void loadLocalization() {
+        loadLocalizationResource("i18n/ui.properties");
+
+        Locale locale = Locale.getDefault();
+        if (locale == null) {
+            return;
+        }
+        if ("zh".equalsIgnoreCase(locale.getLanguage())) {
+            loadLocalizationResource("i18n/ui_zh.properties");
+            if ("CN".equalsIgnoreCase(locale.getCountry())) {
+                loadLocalizationResource("i18n/ui_zh_CN.properties");
+            }
+        }
+    }
+
+    private static void loadLocalizationResource(String resourcePath) {
+        try (InputStream inputStream = ProtegeApplication.class.getClassLoader().getResourceAsStream(resourcePath)) {
+            if (inputStream == null) {
+                logger.debug("Localization resource not found on classpath: {}", resourcePath);
+                return;
+            }
+            Properties props = new Properties();
+            props.load(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+            for (Map.Entry<Object, Object> e : props.entrySet()) {
+                ProtegeProperties.getInstance().put(String.valueOf(e.getKey()), String.valueOf(e.getValue()));
+            }
+        } catch (IOException e) {
+            logger.warn("Error loading localization resource {}: {}", resourcePath, e.getMessage());
+        }
     }
 
 

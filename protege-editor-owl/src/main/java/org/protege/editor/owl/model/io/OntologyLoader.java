@@ -1,6 +1,7 @@
 package org.protege.editor.owl.model.io;
 
 import com.google.common.util.concurrent.*;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.owl.model.IOListenerManager;
 import org.protege.editor.owl.model.OWLModelManager;
 import org.protege.editor.owl.model.event.EventType;
@@ -139,20 +140,20 @@ public class OntologyLoader {
 
     private void displayOntologiesAlreadyLoadedMessage(Set<OWLOntology> alreadyLoadedOntologies) {
         StringBuilder sb = new StringBuilder();
-        sb.append("<html><body>");
-        sb.append("The following ontologies are already loaded in this workspace<br><br>");
+        sb.append(ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.ontologiesAlreadyLoaded.headerHtml"));
         for(OWLOntology alreadyLoadedOntology : alreadyLoadedOntologies) {
             String ren = modelManager.getRendering(alreadyLoadedOntology);
             sb.append("<b>");
             sb.append(ren);
             sb.append("</b><br>");
         }
-        sb.append("<br>");
-        sb.append("They have not been replaced/overwritten");
-        sb.append("</body></html>");
+        sb.append(ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.ontologiesAlreadyLoaded.footerHtml"));
 
         SwingUtilities.invokeLater(() ->
-                JOptionPane.showMessageDialog(null, sb.toString(), "Workspace already contains loaded ontologies", JOptionPane.WARNING_MESSAGE));
+                JOptionPane.showMessageDialog(null,
+                                              sb.toString(),
+                                              ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.ontologiesAlreadyLoaded.title"),
+                                              JOptionPane.WARNING_MESSAGE));
     }
 
 

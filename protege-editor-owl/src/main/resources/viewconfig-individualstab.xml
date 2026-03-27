@@ -3,36 +3,36 @@
     <VSNode splits="0.3 0.7">
         <HSNode splits="0.5 0.5">
             <CNode>
-                <Component label="Class hierarchy">
+                <Component label="@i18n.owl.label.classHierarchy">
                     <Property id="pluginId" value="org.protege.editor.owl.OWLAssertedClassHierarchy"/>
                 </Component>
             </CNode>
             <CNode>
-                <Component label="Individuals">
+                <Component label="@i18n.owl.label.directInstances">
                     <Property id="pluginId" value="org.protege.editor.owl.OWLMembersList"/>
                 </Component>
-                <Component label="Individuals (Inferred)">
+                <Component label="@i18n.owl.label.directInstancesInferred">
                     <Property id="pluginId" value="org.protege.editor.owl.OWLInferredMembersList"/>
                 </Component>
             </CNode>
         </HSNode>
         <HSNode splits="0.375 0.625">
             <CNode>
-                <Component label="Annotations">
+                <Component label="@i18n.owl.label.annotations">
                     <Property id="pluginId" value="org.protege.editor.owl.OWLIndividualAnnotations"/>
                 </Component>
-                <Component label="Usage">
+                <Component label="@i18n.owl.label.usage">
                     <Property id="pluginId" value="org.protege.editor.owl.OWLIndividualUsageView"/>
                 </Component>
             </CNode>
             <VSNode splits="0.5 0.5">
                 <CNode>
-                    <Component label="Description">
+                    <Component label="@i18n.owl.label.description">
                         <Property id="pluginId" value="org.protege.editor.owl.OWLIndividualTypes"/>
                     </Component>
                 </CNode>
                 <CNode>
-                    <Component label="Relationships">
+                    <Component label="@i18n.owl.label.propertyAssertions">
                         <Property id="pluginId" value="org.protege.editor.owl.OWLIndividualRelationships"/>
                     </Component>
                 </CNode>

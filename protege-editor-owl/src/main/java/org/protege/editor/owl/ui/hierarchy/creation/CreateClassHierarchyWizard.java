@@ -1,6 +1,7 @@
 package org.protege.editor.owl.ui.hierarchy.creation;
 
 import org.protege.editor.core.ProtegeManager;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ui.wizard.Wizard;
 import org.protege.editor.core.util.Recommendation;
 import org.protege.editor.owl.OWLEditorKit;
@@ -28,7 +29,7 @@ public class CreateClassHierarchyWizard extends Wizard {
 
     public CreateClassHierarchyWizard(OWLEditorKit owlEditorKit) {
         super(ProtegeManager.getInstance().getFrame(owlEditorKit.getWorkspace()));
-        setTitle("Create Class Hierarchy");
+        setTitle(i18n("i18n.owl.dialog.createClassHierarchyWizard.title", "Create Class Hierarchy"));
         pickRootClassPanel = new PickRootClassPanel(owlEditorKit);
         registerWizardPanel(PickRootClassPanel.ID, pickRootClassPanel);
         tabIndentedHierarchyPanel = new TabIndentedHierarchyPanel(owlEditorKit);
@@ -67,5 +68,10 @@ public class CreateClassHierarchyWizard extends Wizard {
     public void dispose() {
         pickRootClassPanel.dispose();
         super.dispose();
+    }
+
+    private static String i18n(String key, String fallback) {
+        String value = ProtegeProperties.getInstance().getProperty(key);
+        return value != null ? value : fallback;
     }
 }

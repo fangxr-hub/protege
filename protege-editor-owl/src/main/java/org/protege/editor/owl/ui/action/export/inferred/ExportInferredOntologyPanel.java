@@ -1,5 +1,6 @@
 package org.protege.editor.owl.ui.action.export.inferred;
 
+import org.protege.editor.core.ProtegeProperties;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.reasoner.InferenceType;
 import org.semanticweb.owlapi.util.*;
@@ -80,7 +81,11 @@ public class ExportInferredOntologyPanel extends JPanel {
         if(expensive) {
             box.addActionListener(e -> {
                 if(box.isSelected()) {
-                    JOptionPane.showMessageDialog(ExportInferredOntologyPanel.this, "<html><body>Warning: Exporting <b>" + gen.getLabel() + "</b> may take a long time.</body></html>",  "Warning", JOptionPane.WARNING_MESSAGE);
+                    String msgTemplate = ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.exportInferred.warningMessageHtml");
+                    JOptionPane.showMessageDialog(ExportInferredOntologyPanel.this,
+                                                  String.format(msgTemplate, gen.getLabel()),
+                                                  ProtegeProperties.getInstance().getProperty("i18n.dialog.warningTitle"),
+                                                  JOptionPane.WARNING_MESSAGE);
                 }
             });
         }

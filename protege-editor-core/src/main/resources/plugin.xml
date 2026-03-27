@@ -42,15 +42,15 @@
          id="menu.FileMenu"
          name="FileMenu"
          point="org.protege.editor.core.application.EditorKitMenuAction">
-      <name value="File"/>
+      <name value="@i18n.menu.file"/>
       <path value="/SlotA-A"/>
       <editorKitId value="any"/>
    </extension>
 
     <extension id="menu.file.new" 
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="New..."/>
-        <toolTip value="Create a new empty ontology"/>
+        <name value="@i18n.action.new"/>
+        <toolTip value="@i18n.action.new.tooltip"/>
         <class value="org.protege.editor.core.ui.action.NewAction"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotAA-E"/>
         <editorKitId value="any"/>
@@ -59,8 +59,8 @@
 
     <extension id="menu.file.open" 
     		   point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Open..."/>
-        <toolTip value="Open an ontology"/>
+        <name value="@i18n.action.open"/>
+        <toolTip value="@i18n.action.open.tooltip"/>
         <class value="org.protege.editor.core.ui.action.OpenAction"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotAA-F"/>
         <editorKitId value="any"/>
@@ -69,8 +69,8 @@
 
     <extension id="menu.file.openrecent" 
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Open recent"/>
-        <toolTip value="Open a recent ontology"/>
+        <name value="@i18n.action.openRecent"/>
+        <toolTip value="@i18n.action.openRecent.tooltip"/>
         <class value="org.protege.editor.core.ui.action.OpenRecentAction"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotAA-Z"/>
         <editorKitId value="any"/>
@@ -79,8 +79,8 @@
 
     <extension id="menu.file.close" 
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Close window"/>
-        <toolTip value="Close the current set of ontologies"/>
+        <name value="@i18n.action.closeWindow"/>
+        <toolTip value="@i18n.action.closeWindow.tooltip"/>
         <class value="org.protege.editor.core.ui.action.CloseAction"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotY-M"/>
         <editorKitId value="any"/>
@@ -88,8 +88,8 @@
     </extension>
 
     <extension id="menu.file.save" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Save"/>
-        <toolTip value="Save"/>
+        <name value="@i18n.action.save"/>
+        <toolTip value="@i18n.action.save.tooltip"/>
         <class value="org.protege.editor.core.ui.action.SaveAction"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotAB-A"/>
         <editorKitId value="any"/>
@@ -97,8 +97,8 @@
     </extension>
 
     <extension id="menu.file.saveas" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Save as..."/>
-        <toolTip value="Save as"/>
+        <name value="@i18n.action.saveAs"/>
+        <toolTip value="@i18n.action.saveAs.tooltip"/>
         <class value="org.protege.editor.core.ui.action.SaveAsAction"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotAB-B"/>
         <editorKitId value="any"/>
@@ -107,8 +107,8 @@
 
 
     <extension id="menu.plugins" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Check for plugins..."/>
-        <toolTip value="Search for plugin downloads and updates"/>
+        <name value="@i18n.action.checkPlugins"/>
+        <toolTip value="@i18n.action.checkPlugins.tooltip"/>
         <class value="org.protege.editor.core.ui.action.CheckPluginsAction"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotP-A"/>
         <editorKitId value="any"/>
@@ -118,7 +118,7 @@
 
     <extension id="menu.EditMenu"
                 point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Edit"/>
+        <name value="@i18n.menu.edit"/>
         <toolTip value=""/>
         <path value="/SlotB-A"/>
         <editorKitId value="any"/>
@@ -127,24 +127,24 @@
     <!-- Window menu -->
 
     <extension id="menu.window" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Window"/>
+        <name value="@i18n.menu.window"/>
         <path value="/SlotW-A"/>
         <editorKitId value="any"/>
     </extension>
 
     <extension id="menu.window.captureView" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Capture view to clipboard..."/>
+        <name value="@i18n.window.captureView"/>
         <path value="org.protege.editor.core.application.menu.window/SlotC-A"/>
-        <toolTip value="Capture the focused view as a png image on the clipboard"/>
+        <toolTip value="@i18n.window.captureView.tooltip"/>
         <class value="org.protege.editor.core.ui.view.CaptureScreenshotAction"/>
         <editorKitId value="any"/>
     </extension>
 
     <extension id="menu.window.views" 
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Views"/>
+        <name value="@i18n.window.views"/>
         <path value="org.protege.editor.core.application.menu.window/SlotA-A"/>
-        <toolTip value="Configure Views"/>
+        <toolTip value="@i18n.window.views.tooltip"/>
         <class value="org.protege.editor.core.ui.workspace.views.ViewMenuAction"/>
         <editorKitId value="any"/>
         <dynamic value="true"/>
@@ -155,9 +155,9 @@
 
     <extension id="menu.window.tabs" 
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Tabs"/>
+        <name value="@i18n.window.tabs"/>
         <path value="org.protege.editor.core.application.menu.window/SlotA-C"/>
-        <toolTip value="Set default tabs"/>
+        <toolTip value="@i18n.window.tabs.tooltip"/>
         <class value="org.protege.editor.core.ui.workspace.tabs.TabsMenuAction"/>
         <editorKitId value="any"/>
         <dynamic value="true"/>
@@ -165,18 +165,18 @@
 
     <extension id="menu.window.createTab" 
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Create new tab..."/>
+        <name value="@i18n.window.createTab"/>
         <path value="org.protege.editor.core.application.menu.window/SlotB-D"/>
-        <toolTip value="Create a new custom tab"/>
+        <toolTip value="@i18n.window.createTab.tooltip"/>
         <class value="org.protege.editor.core.ui.workspace.tabs.CreateTabAction"/>
         <editorKitId value="any"/>
     </extension>
     
     <extension id="menu.window.deleteTab" 
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Delete custom tabs..."/>
+        <name value="@i18n.window.deleteTabs"/>
         <path value="org.protege.editor.core.application.menu.window/SlotB-E"/>
-        <toolTip value="Delete selected custom tabs"/>
+        <toolTip value="@i18n.window.deleteTabs.tooltip"/>
         <class value="org.protege.editor.core.ui.workspace.tabs.DeleteCustomTabsAction"/>
         <editorKitId value="any"/>
     </extension>
@@ -184,7 +184,7 @@
         
     <extension id="menu.window.exportTab" 
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Export current tab..."/>
+        <name value="@i18n.window.exportTab"/>
         <path value="org.protege.editor.core.application.menu.window/SlotB-F"/>
         <class value="org.protege.editor.core.ui.workspace.tabs.ExportTabAction"/>
         <editorKitId value="any"/>
@@ -192,7 +192,7 @@
     
     <extension id="menu.window.importTab" 
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Import tab..."/>
+        <name value="@i18n.window.importTab"/>
         <path value="org.protege.editor.core.application.menu.window/SlotB-F"/>
         <class value="org.protege.editor.core.ui.workspace.tabs.ImportTabAction"/>
         <editorKitId value="any"/>
@@ -200,7 +200,7 @@
     
     <extension id="menu.window.saveTabs" 
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Store current layout"/>
+        <name value="@i18n.window.storeLayout"/>
         <path value="org.protege.editor.core.application.menu.window/SlotB-G"/>
         <class value="org.protege.editor.core.ui.workspace.tabs.SaveAllTabsAction"/>
         <editorKitId value="any"/>
@@ -208,7 +208,7 @@
 
     <extension id="menu.window.resetCurrentTab" 
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Reset selected tab to default state"/>
+        <name value="@i18n.window.resetTab"/>
         <path value="org.protege.editor.core.application.menu.window/SlotB-H"/>
         <class value="org.protege.editor.core.ui.workspace.tabs.ResetCurrentTabAction"/>
         <editorKitId value="any"/>
@@ -217,22 +217,22 @@
     <!-- Help menu -->
 
     <extension id="menu.HelpMenu" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Help"/>
+        <name value="@i18n.menu.help"/>
         <path value="/SlotZZZZ-Z"/>
         <editorKitId value="any"/>
     </extension>
 
     <extension id="menu.DocumentationMenuItem" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Prot\u00E9g\u00E9 documentation"/>
-        <toolTip value="View online documentation"/>
+        <name value="@i18n.help.documentation"/>
+        <toolTip value="@i18n.help.documentation.tooltip"/>
         <url value="http://protegeproject.github.io/protege"/>
         <path value="org.protege.editor.core.application.menu.HelpMenu/SlotF-A"/>
         <editorKitId value="any"/>
     </extension>
 
     <extension id="menu.ReleaseNotesMenuItem" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Release notes"/>
-        <toolTip value="View online release notes"/>
+        <name value="@i18n.help.releaseNotes"/>
+        <toolTip value="@i18n.help.releaseNotes.tooltip"/>
         <url value="https://github.com/protegeproject/protege-distribution/releases"/>
         <path value="org.protege.editor.core.application.menu.HelpMenu/SlotG-A"/>
         <editorKitId value="any"/>
@@ -240,8 +240,8 @@
 
 
     <extension id="menu.CiteProtegeMenuItem" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="How to cite Prot\u00E9g\u00E9"/>
-        <toolTip value="Instructions for citing Prot\u00E9g\u00E9 in scientific publications"/>
+        <name value="@i18n.help.howToCite"/>
+        <toolTip value="@i18n.help.howToCite.tooltip"/>
         <url value="http://protege.stanford.edu/about.php#citing"/>
         <path value="org.protege.editor.core.application.menu.HelpMenu/SlotH-A"/>
         <editorKitId value="any"/>
@@ -249,7 +249,7 @@
 
     <extension id="ui.preferences.explanation"
                point="org.protege.editor.core.application.preferencespanel">
-        <label value="Explanations"/>
+        <label value="@i18n.preferences.explanations"/>
         <class value="org.protege.editor.core.ui.explanationpreferences.ExplanationPreferencesPanel"/>
     </extension>
 
@@ -257,7 +257,7 @@
 
     <extension id="ui.preferences.update"
                point="org.protege.editor.core.application.preferencespanel">
-        <label value="Plugins"/>
+        <label value="@i18n.preferences.plugins"/>
         <class value="org.protege.editor.core.update.PluginPreferencesPanel"/>
     </extension>
     
@@ -265,22 +265,22 @@
     
     <extension id="ui.preferences.update"
                point="org.protege.editor.core.application.preferencespanel">
-        <label value="Log"/>
+        <label value="@i18n.preferences.log"/>
         <class value="org.protege.editor.core.log.LogPreferencesPanel"/>
     </extension>
 
     <extension id="menu.window.timestamp" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Timestamp log / console"/>
+        <name value="@i18n.window.timestamp"/>
         <path value="org.protege.editor.core.application.menu.window/SlotE-A"/>
-        <toolTip value="Prints a timestamp and optional message into the logs or console"/>
+        <toolTip value="@i18n.window.timestamp.tooltip"/>
         <class value="org.protege.editor.core.ui.action.TimestampOutputAction"/>
         <editorKitId value="any"/>
     </extension>
 
     <extension id="menu.window.showlog" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Show log..."/>
+        <name value="@i18n.window.showLog"/>
         <path value="org.protege.editor.core.application.menu.window/SlotE-B"/>
-        <toolTip value="Prints a timestamp and optional message into the logs or console"/>
+        <toolTip value="@i18n.window.showLog.tooltip"/>
         <class value="org.protege.editor.core.log.ShowLogAction"/>
         <editorKitId value="any"/>
     </extension>
@@ -289,14 +289,14 @@
     
     <extension id ="AltCheckForPluginsAction"
                point="org.protege.editor.core.application.OtherStartupActions">
-       <name value="Check for plugins..."/>
+       <name value="@i18n.action.checkPlugins"/>
        <class value="org.protege.editor.core.ui.action.start.CheckPluginsAction"/>
        <sortIndex value="B"/>
     </extension>
     
     <extension id="ResetPreferencesAction"
                point="org.protege.editor.core.application.OtherStartupActions">
-        <name value="Reset Protege preferences..."/>
+        <name value="@i18n.startup.resetPreferences"/>
         <class value="org.protege.editor.core.ui.action.start.ResetPreferencesAction"/>
         <sortIndex value="A"/>
 	</extension>

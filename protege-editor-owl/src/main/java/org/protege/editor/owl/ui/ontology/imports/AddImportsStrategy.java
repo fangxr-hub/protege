@@ -1,6 +1,7 @@
 package org.protege.editor.owl.ui.ontology.imports;
 
 import com.google.common.util.concurrent.*;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.log.LogBanner;
 import org.protege.editor.core.ui.util.UIUtil;
 import org.protege.editor.owl.OWLEditorKit;
@@ -124,7 +125,11 @@ public class AddImportsStrategy {
                     }
                 } catch (OWLOntologyCreationException e) {
                     logger.error("There was a problem loading the ontology from {}.  Error: {}", importedOntologyDocumentIRI, e.getMessage(), e);
-                    JOptionPane.showMessageDialog(editorKit.getOWLWorkspace(), "An error occurred whilst the ontology at " + importedOntologyDocumentIRI + " was being loaded.", "Error loading ontology", JOptionPane.ERROR_MESSAGE);
+                    String msgTemplate = ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.loadOntology.errorMessage");
+                    JOptionPane.showMessageDialog(editorKit.getOWLWorkspace(),
+                                                  String.format(msgTemplate, importedOntologyDocumentIRI),
+                                                  ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.loadOntology.errorTitle"),
+                                                  JOptionPane.ERROR_MESSAGE);
                 }
             }
             changes.add(new AddImport(toOntology, decl));

@@ -145,7 +145,10 @@ public class FileUtils {
             Path logFilePath = Paths.get(userHome, ".Protege", "logs", "protege.log");
             FileUtils.showFile(logFilePath.toFile());
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "An error occurred whilst trying to show the log file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,
+                                          String.format(ProtegeProperties.getInstance().getProperty("i18n.core.logFile.showErrorMessage"), e.getMessage()),
+                                          ProtegeProperties.getInstance().getProperty("i18n.dialog.errorTitle"),
+                                          JOptionPane.ERROR_MESSAGE);
             logger.error("An error occurred whilst trying to show a file in the OS: {}", e.getMessage(), e);
         }
     }

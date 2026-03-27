@@ -1,5 +1,6 @@
 package org.protege.editor.owl.ui.ontology.wizard.create;
 
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ui.wizard.Wizard;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.ui.action.OntologyFormatPage;
@@ -29,7 +30,7 @@ public class CreateOntologyWizard extends Wizard {
 
     public CreateOntologyWizard(Frame owner, OWLEditorKit editorKit) {
         super(owner);
-        setTitle("Create ontology wizard");
+        setTitle(i18n("i18n.owl.dialog.createOntologyWizard.title", "Create ontology wizard"));
         registerWizardPanel(OntologyIDPanel.ID, ontologyIDPanel = new OntologyIDPanel(editorKit));
         registerWizardPanel(PhysicalLocationPanel.ID, physicalLocationPanel = new PhysicalLocationPanel(editorKit));
         registerWizardPanel(OntologyFormatPage.ID, formatPanel = new OntologyFormatPage(editorKit));
@@ -56,4 +57,8 @@ public class CreateOntologyWizard extends Wizard {
         return ret;
     }
 
+    private static String i18n(String key, String fallback) {
+        String value = ProtegeProperties.getInstance().getProperty(key);
+        return value != null ? value : fallback;
+    }
 }

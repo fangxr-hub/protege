@@ -2,24 +2,24 @@
 <layout>
     <VSNode splits="0.3 0.7">
         <CNode>
-            <Component label="Class hierarchy">
+            <Component label="@i18n.owl.label.classHierarchy">
                 <Property id="pluginId" value="org.protege.editor.owl.OWLAssertedClassHierarchy"/>
             </Component>
-            <Component label="Class hierarchy (inferred)">
+            <Component label="@i18n.owl.label.classHierarchyInferred">
                 <Property id="pluginId" value="org.protege.editor.owl.InferredOWLClassHierarchy"/>
             </Component>
         </CNode>
         <HSNode splits="0.375 0.625">
             <CNode>
-                <Component label="Annotations">
+                <Component label="@i18n.owl.label.annotations">
                     <Property id="pluginId" value="org.protege.editor.owl.OWLClassAnnotations"/>
                 </Component>
-                <Component label="Usage">
+                <Component label="@i18n.owl.label.usage">
                     <Property id="pluginId" value="org.protege.editor.owl.OWLClassUsageView"/>
                 </Component>
             </CNode>
             <CNode>
-                <Component label="Description">
+                <Component label="@i18n.owl.label.description">
                     <Property id="pluginId" value="org.protege.editor.owl.OWLClassDescription"/>
                 </Component>
             </CNode>

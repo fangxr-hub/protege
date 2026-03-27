@@ -2,6 +2,7 @@ package org.protege.editor.owl.ui;
 
 import org.protege.editor.core.ui.util.ComponentFactory;
 import org.protege.editor.core.ui.util.UIUtil;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.model.OWLModelManager;
 import org.protege.editor.owl.ui.renderer.OWLOntologyCellRenderer;
@@ -52,12 +53,12 @@ public class GatherOntologiesPanel extends JPanel {
         JPanel holderPanel = new JPanel(new BorderLayout());
         JPanel comboBoxLabelPanel = new JPanel(new BorderLayout(7, 7));
         List<Object> formats = new ArrayList<>();
-        formats.add("Original");
+        formats.add(i18n("i18n.owl.dialog.gatherOntologies.originalFormat", "Original"));
         formats.add(new RDFXMLDocumentFormat());
         formats.add(new OWLXMLDocumentFormat());
         formats.add(new FunctionalSyntaxDocumentFormat());
         formatComboBox = new JComboBox<>(formats.toArray());
-        comboBoxLabelPanel.add(new JLabel("Format"), BorderLayout.WEST);
+        comboBoxLabelPanel.add(new JLabel(i18n("i18n.owl.dialog.gatherOntologies.formatLabel", "Format")), BorderLayout.WEST);
         comboBoxLabelPanel.add(formatComboBox, BorderLayout.EAST);
         JPanel formatPanelHolder = new JPanel();
         formatPanelHolder.add(comboBoxLabelPanel);
@@ -91,7 +92,7 @@ public class GatherOntologiesPanel extends JPanel {
         box.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 150));
         box.setBackground(Color.WHITE);
         JPanel boxHolder = new JPanel(new BorderLayout());
-        boxHolder.setBorder(ComponentFactory.createTitledBorder("Ontologies"));
+        boxHolder.setBorder(ComponentFactory.createTitledBorder(i18n("i18n.owl.dialog.gatherOntologies.ontologiesBorder", "Ontologies")));
         boxHolder.add(new JScrollPane(box));
         boxHolder.setPreferredSize(new Dimension(boxHolder.getPreferredSize().width,
                                                  Math.min(boxHolder.getPreferredSize().height, 300)));
@@ -134,17 +135,22 @@ public class GatherOntologiesPanel extends JPanel {
 
         int ret = JOptionPane.showConfirmDialog(null,
                                                 panel,
-                                                "Gather ontologies",
+                                                i18n("i18n.owl.dialog.gatherOntologies.title", "Gather ontologies"),
                                                 JOptionPane.OK_CANCEL_OPTION,
                                                 JOptionPane.PLAIN_MESSAGE);
         if (ret != JOptionPane.OK_OPTION) {
             return null;
         }
-        File file = UIUtil.chooseFolder(owlEditorKit.getWorkspace(), "Select folder to save the ontologies to");
+        File file = UIUtil.chooseFolder(owlEditorKit.getWorkspace(), i18n("i18n.owl.dialog.gatherOntologies.selectFolder", "Select folder to save the ontologies to"));
         if (file == null) {
             return null;
         }
         panel.setSaveLocation(file);
         return panel;
+    }
+
+    private static String i18n(String key, String fallback) {
+        String value = ProtegeProperties.getInstance().getProperty(key);
+        return value != null ? value : fallback;
     }
 }

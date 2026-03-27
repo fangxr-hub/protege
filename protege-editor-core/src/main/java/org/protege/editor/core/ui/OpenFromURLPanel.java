@@ -1,6 +1,7 @@
 package org.protege.editor.core.ui;
 
 import org.protege.editor.core.BookMarkedURIManager;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ui.list.MList;
 import org.protege.editor.core.ui.list.MListItem;
 import org.protege.editor.core.ui.list.MListSectionHeader;
@@ -31,13 +32,21 @@ public class OpenFromURLPanel extends JPanel implements VerifiedInputEditor {
 
     private static final int PREF_HEIGHT = 300;
 
-    private static final String TITLE = "Enter or select a URL";
+    private static String getTitle() {
+        return ProtegeProperties.getInstance().getProperty("i18n.core.openFromUrl.dialogTitle");
+    }
 
-    private static final String URL_FIELD_PLACEHOLDER = "Enter URL to open from";
+    private static String getUrlFieldPlaceholder() {
+        return ProtegeProperties.getInstance().getProperty("i18n.core.openFromUrl.urlFieldPlaceholder");
+    }
 
-    private static final String URL_FIELD_LABEL = "URL";
+    private static String getUrlFieldLabel() {
+        return ProtegeProperties.getInstance().getProperty("i18n.core.openFromUrl.urlFieldLabel");
+    }
 
-    private static final String BOOKMARKED_URLS_LABEL = "Bookmarked URLs";
+    private static String getBookmarkedUrlsLabel() {
+        return ProtegeProperties.getInstance().getProperty("i18n.core.openFromUrl.bookmarkedUrlsLabel");
+    }
 
     private JTextField uriField;
 
@@ -53,7 +62,7 @@ public class OpenFromURLPanel extends JPanel implements VerifiedInputEditor {
 
 
     private void createUI() {
-        uriField = new AugmentedJTextField("", 45, URL_FIELD_PLACEHOLDER);
+        uriField = new AugmentedJTextField("", 45, getUrlFieldPlaceholder());
         uriField.getDocument().addDocumentListener(new DocumentListener(){
             public void insertUpdate(DocumentEvent event) {
                 handleValueChanged();
@@ -67,11 +76,11 @@ public class OpenFromURLPanel extends JPanel implements VerifiedInputEditor {
         });
 
         JPanel upperGroup = new JPanel(new BorderLayout());
-        upperGroup.add(new FormLabel(URL_FIELD_LABEL), BorderLayout.NORTH);
+        upperGroup.add(new FormLabel(getUrlFieldLabel()), BorderLayout.NORTH);
         upperGroup.add(uriField, BorderLayout.SOUTH);
 
         JPanel lowerGroup = new JPanel(new BorderLayout());
-        lowerGroup.add(new FormLabel(BOOKMARKED_URLS_LABEL), BorderLayout.NORTH);
+        lowerGroup.add(new FormLabel(getBookmarkedUrlsLabel()), BorderLayout.NORTH);
         bookmarksList = new MList() {
             protected void handleAdd() {
                 addURI();
@@ -133,7 +142,10 @@ public class OpenFromURLPanel extends JPanel implements VerifiedInputEditor {
 
 
     private void addURI() {
-        String uriString = JOptionPane.showInputDialog(this, "Please enter a URL", "URL", PLAIN_MESSAGE);
+        String uriString = JOptionPane.showInputDialog(this,
+                                                       ProtegeProperties.getInstance().getProperty("i18n.core.openFromUrl.addPromptMessage"),
+                                                       ProtegeProperties.getInstance().getProperty("i18n.core.openFromUrl.addPromptTitle"),
+                                                       PLAIN_MESSAGE);
         if (uriString != null) {
             try {
                 URI uri = new URI(uriString);
@@ -148,7 +160,10 @@ public class OpenFromURLPanel extends JPanel implements VerifiedInputEditor {
 
 
     private void showURIErrorMessage(URISyntaxException e) {
-        JOptionPane.showMessageDialog(this, e.getMessage(), "Invalid URL", ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this,
+                                      e.getMessage(),
+                                      ProtegeProperties.getInstance().getProperty("i18n.core.openFromUrl.invalidUrlTitle"),
+                                      ERROR_MESSAGE);
     }
 
 
@@ -217,7 +232,7 @@ public class OpenFromURLPanel extends JPanel implements VerifiedInputEditor {
     private static class AddUrlItem implements MListSectionHeader {
 
         public String getName() {
-            return "Bookmarked URLs";
+            return getBookmarkedUrlsLabel();
         }
 
 
@@ -257,7 +272,7 @@ public class OpenFromURLPanel extends JPanel implements VerifiedInputEditor {
 
     public static URI showDialog() {
         OpenFromURLPanel panel = new OpenFromURLPanel();
-        int ret = JOptionPaneEx.showValidatingConfirmDialog(null, TITLE,
+        int ret = JOptionPaneEx.showValidatingConfirmDialog(null, getTitle(),
                                                             panel,
                                                             PLAIN_MESSAGE,
                                                             OK_CANCEL_OPTION,

@@ -4,6 +4,7 @@ import org.protege.editor.core.ui.action.ProtegeAction;
 import org.protege.editor.core.ui.util.UIUtil;
 import org.protege.editor.core.ui.workspace.TabbedWorkspace;
 import org.protege.editor.core.ui.workspace.WorkspaceViewsTab;
+import org.protege.editor.core.ProtegeProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,8 +38,8 @@ public class ImportTabAction extends ProtegeAction {
         Set<String> extensions = new HashSet<>();
         extensions.add("xml");
         File f = UIUtil.openFile((JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, workspace),
-                "Open layout from",
-                "XML Layout File",
+                ProtegeProperties.getInstance().getProperty("i18n.core.tabLayout.openDialogTitle"),
+                ProtegeProperties.getInstance().getProperty("i18n.core.tabLayout.openDialogDescription"),
                 extensions);
         if (f == null) {
             return;
@@ -62,8 +63,8 @@ public class ImportTabAction extends ProtegeAction {
             logger.error("An error occurred when attempting to import a tab configuration.  File: {}, Details: {}",
                     f.getAbsolutePath(), e);
             JOptionPane.showMessageDialog(workspace,
-                    "There was a problem saving the layout",
-                    "Error",
+                    ProtegeProperties.getInstance().getProperty("i18n.core.tabLayout.importErrorMessage"),
+                    ProtegeProperties.getInstance().getProperty("i18n.dialog.errorTitle"),
                     JOptionPane.ERROR_MESSAGE);
         }
 	}

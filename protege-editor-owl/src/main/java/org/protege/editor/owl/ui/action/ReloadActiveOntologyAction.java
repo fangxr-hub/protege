@@ -1,6 +1,7 @@
 package org.protege.editor.owl.ui.action;
 
 import org.protege.editor.owl.model.OWLModelManager;
+import org.protege.editor.core.ProtegeProperties;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
@@ -24,7 +25,11 @@ public class ReloadActiveOntologyAction extends ProtegeOWLAction {
         OWLModelManager modelManager = getOWLModelManager();
         OWLOntology activeOntology = modelManager.getActiveOntology();
         if (getOWLModelManager().isDirty(activeOntology)) {
-            int ret = JOptionPane.showConfirmDialog(getOWLWorkspace(), "Are you sure that you want to reload the active ontology?  You will lose any unsaved changes.", "Reload ontology?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int ret = JOptionPane.showConfirmDialog(getOWLWorkspace(),
+                    i18n("i18n.owl.dialog.reloadOntology.confirmMessage", "Are you sure that you want to reload the active ontology?  You will lose any unsaved changes."),
+                    i18n("i18n.owl.dialog.reloadOntology.confirmTitle", "Reload ontology?"),
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
             if(ret != JOptionPane.YES_OPTION) {
                 return;
             }
@@ -32,7 +37,10 @@ public class ReloadActiveOntologyAction extends ProtegeOWLAction {
         try {
             modelManager.reload(activeOntology);
         } catch (OWLOntologyCreationException e1) {
-            JOptionPane.showMessageDialog(getOWLWorkspace(), "There was an error reloading the active ontology.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(getOWLWorkspace(),
+                    i18n("i18n.owl.dialog.reloadOntology.errorMessage", "There was an error reloading the active ontology."),
+                    i18n("i18n.owl.dialog.reloadOntology.errorTitle", "Error"),
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -54,5 +62,10 @@ public class ReloadActiveOntologyAction extends ProtegeOWLAction {
     @Override
     public void dispose() throws Exception {
 
+    }
+
+    private static String i18n(String key, String fallback) {
+        String value = ProtegeProperties.getInstance().getProperty(key);
+        return value != null ? value : fallback;
     }
 }

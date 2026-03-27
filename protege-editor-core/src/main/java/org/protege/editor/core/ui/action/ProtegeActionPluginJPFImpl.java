@@ -2,6 +2,7 @@ package org.protege.editor.core.ui.action;
 
 
 import org.eclipse.core.runtime.IExtension;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.editorkit.EditorKit;
 import org.protege.editor.core.plugin.AbstractProtegePlugin;
 import org.protege.editor.core.plugin.PluginUtilities;
@@ -42,11 +43,7 @@ public abstract class ProtegeActionPluginJPFImpl extends AbstractProtegePlugin<P
      * that will be used for the menu item text etc.
      */
     public String getName() {
-    	String name = PluginUtilities.getAttribute(extension, NAME_PARAM);
-    	if (name != null && name.contains("\\u")) {
-    		name = decode(name);
-    	}
-        return name;
+        return resolve(PluginUtilities.getAttribute(extension, NAME_PARAM));
     }
 
 
@@ -57,11 +54,24 @@ public abstract class ProtegeActionPluginJPFImpl extends AbstractProtegePlugin<P
      *         plugin shouldn't have any tooltip text.
      */
     public String getToolTipText() {
-    	String tooltip = PluginUtilities.getAttribute(extension, TOOL_TIP_PARAM);
-    	if (tooltip != null && tooltip.contains("\\u")) {
-    		tooltip = decode(tooltip);
-    	}
-        return tooltip;
+        return resolve(PluginUtilities.getAttribute(extension, TOOL_TIP_PARAM));
+    }
+
+    private static String resolve(String value) {
+        if (value == null) {
+            return null;
+        }
+        String result = value;
+        if (result.startsWith("@")) {
+            String propValue = ProtegeProperties.getInstance().getProperty(result.substring(1));
+            if (propValue != null) {
+                result = propValue;
+            }
+        }
+        if (result.contains("\\u")) {
+            result = decode(result);
+        }
+        return result;
     }
 
 

@@ -1,5 +1,6 @@
 package org.protege.editor.core.ui.workspace.tabs;
 
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ui.action.ProtegeAction;
 import org.protege.editor.core.ui.workspace.CustomWorkspaceTabsManager;
 import org.protege.editor.core.ui.workspace.TabbedWorkspace;
@@ -25,7 +26,7 @@ public class CreateTabAction extends ProtegeAction {
 	}
 	
 	public static WorkspaceTab handleCreateNewTab(TabbedWorkspace workspace) {
-        final String name = JOptionPane.showInputDialog(workspace, "Please enter a name for the new tab");
+        final String name = JOptionPane.showInputDialog(workspace, ProtegeProperties.getInstance().getProperty("i18n.core.tabs.create.prompt"));
         if (name != null) {
         CustomWorkspaceTabsManager customTabsManager = workspace.getCustomTabsManager();
         WorkspaceTab tab = workspace.addTabForPlugin(customTabsManager.getPluginForTabName(name, workspace));

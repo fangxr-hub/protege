@@ -1,5 +1,6 @@
 package org.protege.editor.owl.ui.ontology.imports.wizard;
 
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ui.wizard.Wizard;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.ui.ontology.imports.wizard.page.*;
@@ -27,7 +28,7 @@ public class OntologyImportWizard extends Wizard {
     
     public OntologyImportWizard(Frame owner, OWLEditorKit owlEditorKit) {
         super(owner);
-        setTitle("Import ontology wizard");
+        setTitle(i18n("i18n.owl.dialog.importOntologyWizard.title", "Import ontology wizard"));
         registerWizardPanel(ImportTypePage.ID, new ImportTypePage(owlEditorKit));
         registerWizardPanel(LocalFilePage.ID, new LocalFilePage(owlEditorKit));
         registerWizardPanel(URLPage.ID, new URLPage(owlEditorKit));
@@ -36,6 +37,11 @@ public class OntologyImportWizard extends Wizard {
         registerWizardPanel(SelectImportLocationPage.ID, new SelectImportLocationPage(owlEditorKit));
         registerWizardPanel(ImportConfirmationPage.ID, new ImportConfirmationPage(owlEditorKit));
         setCurrentPanel(ImportTypePage.ID);
+    }
+
+    private static String i18n(String key, String fallback) {
+        String value = ProtegeProperties.getInstance().getProperty(key);
+        return value != null ? value : fallback;
     }
     
     public void clearImports() {

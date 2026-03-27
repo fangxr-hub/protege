@@ -124,6 +124,7 @@ public class MenuBuilder {
     private void buildCompositeMenu(MenuActionPlugin plugin, JComponent menuContainer, List<MenuActionPlugin> children) {
         // Add a JMenu
         JMenu menu = new JMenu(plugin.getName());
+        menu.setName(plugin.getId());
         menu.setMnemonic(Character.toLowerCase(plugin.getName().charAt(0)));
         menuContainer.add(menu);
         MenuActionPlugin lastPlugin = null;
@@ -141,6 +142,7 @@ public class MenuBuilder {
     private void buildDynamicMenu(MenuActionPlugin plugin, JComponent menuContainer) {
         // Construct dynamic menu.  This is basically a menu, whose children are determined at runtime.
         final JMenu menu = new JMenu(plugin.getName());
+        menu.setName(plugin.getId());
         menu.setMnemonic(Character.toLowerCase(plugin.getName().charAt(0)));
         menuContainer.add(menu);
         try {
@@ -160,6 +162,7 @@ public class MenuBuilder {
         try {
             ProtegeAction action = plugin.newInstance();
             final JMenuItem menuItem = createMenuItem(plugin, action);
+            menuItem.setName(plugin.getId());
             KeyStroke ks = plugin.getAccelerator();
             ks = fixAcceleratorForMacOSX(ks);
             menuItem.setAccelerator(ks);
@@ -178,6 +181,7 @@ public class MenuBuilder {
     private void buildTopLevelMenu(MenuActionPlugin plugin, JComponent menuContainer) {
         // This is a top level menu.  It is probably a place holder, so add it.
         JMenu menu = new JMenu(plugin.getName());
+        menu.setName(plugin.getId());
         menu.setMnemonic(Character.toLowerCase(plugin.getName().charAt(0)));
         menuContainer.add(menu);
     }

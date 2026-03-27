@@ -4,6 +4,7 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 import org.protege.editor.core.FileUtils;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ProtegeApplication;
 import org.protege.editor.core.log.LogBanner;
 import org.protege.editor.core.ui.progress.BackgroundTask;
@@ -69,14 +70,14 @@ public class PluginInstaller {
                 ProtegeApplication.getBackgroundTaskManager().endTask(installAllTask);
             }
             if (errorsFound) {
-                ErrorMessage.showErrorMessage("Plugin Installer",
-                        "Some errors occurred whilst installing the downloaded plugins.");
+                ErrorMessage.showErrorMessage(ProtegeProperties.getInstance().getProperty("i18n.core.pluginInstaller.errorTitle"),
+                        ProtegeProperties.getInstance().getProperty("i18n.core.pluginInstaller.errorMessage"));
             }
             else if (someInstalled) {
-                JOptionPane.showMessageDialog(null, "Updates will take effect when you next start Protege.");
+                JOptionPane.showMessageDialog(null, ProtegeProperties.getInstance().getProperty("i18n.core.pluginInstaller.restartMessage"));
             }
             else {
-                JOptionPane.showMessageDialog(null, "Updates will take effect when you next start Protege.");
+                JOptionPane.showMessageDialog(null, ProtegeProperties.getInstance().getProperty("i18n.core.pluginInstaller.restartMessage"));
             }
         };
 

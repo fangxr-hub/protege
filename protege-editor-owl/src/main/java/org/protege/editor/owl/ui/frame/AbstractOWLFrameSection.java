@@ -54,8 +54,18 @@ public abstract class AbstractOWLFrameSection<R extends Object, A extends OWLAxi
 
     protected AbstractOWLFrameSection(OWLEditorKit editorKit, String label, String rowLabel, OWLFrame<? extends R> frame) {
         this.owlEditorKit = editorKit;
-        this.label = label;
-        this.rowLabel = rowLabel;
+        
+        // Translate the frame section label
+        String i18nKey = "i18n.owl.frame." + label.replaceAll("[^a-zA-Z0-9]", "");
+        this.label = org.protege.editor.core.ProtegeProperties.getInstance().getProperty(i18nKey, label);
+        
+        if (rowLabel != null) {
+            String rowI18nKey = "i18n.owl.frame." + rowLabel.replaceAll("[^a-zA-Z0-9]", "");
+            this.rowLabel = org.protege.editor.core.ProtegeProperties.getInstance().getProperty(rowI18nKey, rowLabel);
+        }
+        else {
+            this.rowLabel = null;
+        }
         this.frame = frame;
         this.rows = new ArrayList<>();
 

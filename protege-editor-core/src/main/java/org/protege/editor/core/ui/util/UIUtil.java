@@ -1,5 +1,6 @@
 package org.protege.editor.core.ui.util;
 
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ProtegeManager;
 import org.protege.editor.core.editorkit.EditorKit;
 import org.protege.editor.core.editorkit.EditorKitManager;
@@ -257,7 +258,11 @@ public class UIUtil {
                 return;
             }
         }
-        int ret = JOptionPane.showConfirmDialog(handler.getCurrentWorkspace(), "Do you want to open the ontology in the current window?", "Open in current window", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int ret = JOptionPane.showConfirmDialog(handler.getCurrentWorkspace(),
+                                               ProtegeProperties.getInstance().getProperty("i18n.core.openOntology.confirmMessage"),
+                                               ProtegeProperties.getInstance().getProperty("i18n.core.openOntology.confirmTitle"),
+                                               JOptionPane.YES_NO_CANCEL_OPTION,
+                                               JOptionPane.QUESTION_MESSAGE);
 
         if(ret == JOptionPane.YES_OPTION) {
             handler.openInCurrentWorkspace();

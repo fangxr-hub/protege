@@ -1,6 +1,7 @@
 package org.protege.editor.owl.ui.action.export.inferred;
 
 import org.protege.editor.core.ui.wizard.Wizard;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.ui.action.OntologyFormatPage;
 import org.protege.editor.owl.ui.ontology.wizard.create.OntologyIDPanel;
@@ -39,7 +40,7 @@ public class ExportInferredOntologyWizard extends Wizard {
 
 
     public ExportInferredOntologyWizard(OWLEditorKit editorKit) {
-        setTitle("Export inferred axioms as ontology");
+        setTitle(i18n("i18n.owl.dialog.exportInferredOntology.title", "Export inferred axioms as ontology"));
         registerWizardPanel(ExportInferredOntologyWizardSelectAxiomsPanel.ID,
                             axiomsPanel = new ExportInferredOntologyWizardSelectAxiomsPanel(editorKit));
         setCurrentPanel(ExportInferredOntologyWizardSelectAxiomsPanel.ID);
@@ -48,6 +49,11 @@ public class ExportInferredOntologyWizard extends Wizard {
         registerWizardPanel(OntologyIDPanel.ID, ontologyIRIPanel = new ExportInferredOntologyIDPanel(editorKit));
         registerWizardPanel(PhysicalLocationPanel.ID, locationPanel = new PhysicalLocationPanel(editorKit));
         registerWizardPanel(OntologyFormatPage.ID, ontologyFormatPanel = new OntologyFormatPage(editorKit));
+    }
+
+    private static String i18n(String key, String fallback) {
+        String value = ProtegeProperties.getInstance().getProperty(key);
+        return value != null ? value : fallback;
     }
 
 

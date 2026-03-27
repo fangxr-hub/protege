@@ -5,6 +5,7 @@ import org.osgi.framework.ServiceRegistration;
 import org.protege.editor.core.BookMarkedURIManager;
 import org.protege.editor.core.Disposable;
 import org.protege.editor.core.editorkit.*;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.log.LogBanner;
 import org.protege.editor.core.ui.error.ErrorLogPanel;
 import org.protege.editor.core.util.StringAbbreviator;
@@ -301,8 +302,8 @@ public class OWLEditorKit extends AbstractEditorKit<OWLEditorKitFactory> {
             return;
         }
         StringBuilder errorMessage = new StringBuilder();
-        errorMessage.append("<html><body><b>Some errors where encountered during the save operation.</b><br><br>" +
-                "The following ontologies were not saved:<br><br>");
+        errorMessage.append(ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.saveErrors.headerHtml"));
+        String reasonPrefix = ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.saveErrors.reasonPrefix");
         for (OWLOntology erroredOntology : saveErrors.keySet()) {
             OWLOntologyStorageException error = saveErrors.get(erroredOntology);
             logger.error("An error occurred whilst saving the {} ontology: {}", error.getMessage(), error);
@@ -310,11 +311,15 @@ public class OWLEditorKit extends AbstractEditorKit<OWLEditorKitFactory> {
             errorMessage
                     .append("<b>")
                     .append(rendering)
-                    .append("</b><br><span style=\"color:gray;\">Reason: ")
+                    .append("</b><br><span style=\"color:gray;\">")
+                    .append(reasonPrefix)
                     .append(StringAbbreviator.abbreviateString(error.getMessage().trim(), 100).replace("\n", "<br>"))
                     .append("</span><br><br>");
         }
-        JOptionPane.showMessageDialog(getWorkspace(), errorMessage.toString(), "Save Errors", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(getWorkspace(),
+                                      errorMessage.toString(),
+                                      ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.saveErrors.title"),
+                                      JOptionPane.ERROR_MESSAGE);
     }
 
 

@@ -2,7 +2,7 @@
 <layout>
     <VSNode splits="0.3">
         <CNode>
-            <Component label="Inferred axioms">
+            <Component label="@i18n.owl.label.inferredAxioms">
                 <Property id="pluginId" value="org.protege.editor.owl.ExplanationView"/>
             </Component>
         </CNode>

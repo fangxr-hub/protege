@@ -4,24 +4,24 @@
         <HSNode splits="0.625 0.375">
             <VSNode splits="0.625 0.375">
                     <CNode>
-                        <Component label="Annotations">
+                        <Component label="@i18n.owl.label.annotations">
                             <Property id="pluginId" value="org.protege.editor.owl.OWLOntologyAnnotationsView"/>
                         </Component>
                     </CNode>
                     <CNode>
-                        <Component label="Metrics">
+                        <Component label="@i18n.owl.label.ontologyMetrics">
                             <Property id="pluginId" value="org.protege.editor.owl.OWLOntologyMetricsView"/>
                         </Component>
                     </CNode>
             </VSNode>
             <CNode>
-                <Component label="Ontology imports">
+                <Component label="@i18n.owl.label.importedOntologies">
                     <Property id="pluginId" value="org.protege.editor.owl.OWLOntologyImportsTable"/>
                 </Component>
-                <Component label="Ontology Prefixes">
+                <Component label="@i18n.owl.label.ontologyPrefixes">
                     <Property id="pluginId" value="org.protege.editor.owl.OWLOntologyPrefixesView"/>
                 </Component>
-                <Component label="General class axioms">
+                <Component label="@i18n.owl.label.generalClassAxioms">
                     <Property id="pluginId" value="org.protege.editor.owl.GeneralClassAxioms"/>
                 </Component>
             </CNode>

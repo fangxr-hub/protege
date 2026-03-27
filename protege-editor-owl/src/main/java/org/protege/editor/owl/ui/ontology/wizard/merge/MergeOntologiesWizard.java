@@ -1,5 +1,6 @@
 package org.protege.editor.owl.ui.ontology.wizard.merge;
 
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ui.wizard.Wizard;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.model.OWLModelManager;
@@ -39,17 +40,21 @@ public class MergeOntologiesWizard extends Wizard {
 
 
     public MergeOntologiesWizard(OWLEditorKit editorKit) {
-        setTitle("Create ontology wizard");
+        setTitle(i18n("i18n.owl.dialog.createOntologyWizard.title", "Create ontology wizard"));
         this.owlModelManager = editorKit.getModelManager();
-        registerWizardPanel(SelectOntologiesPage.ID, selectOntologiesPage = new SelectOntologiesPage(editorKit, "Select ontologies to merge"));
-        selectOntologiesPage.setInstructions("Please select the ontologies that you want to merge into another ontology.");
+        registerWizardPanel(SelectOntologiesPage.ID, selectOntologiesPage = new SelectOntologiesPage(editorKit,
+                i18n("i18n.owl.dialog.mergeOntologies.selectOntologies.title", "Select ontologies to merge")));
+        selectOntologiesPage.setInstructions(i18n("i18n.owl.dialog.mergeOntologies.selectOntologies.instructions",
+                "Please select the ontologies that you want to merge into another ontology."));
 
         registerWizardPanel(MergeTypePage.ID, new MergeTypePage(editorKit));
         registerWizardPanel(OntologyIDPanel.ID, IDPanel = new OntologyIDPanel(editorKit));
         registerWizardPanel(PhysicalLocationPanel.ID, physicalLocationPanel = new PhysicalLocationPanel(editorKit));
         registerWizardPanel(OntologyFormatPage.ID, ontologyFormatPage = new OntologyFormatPage(editorKit));
-        registerWizardPanel(SelectTargetOntologyPage.ID, selectTargetOntologyPage = new SelectTargetOntologyPage(editorKit, "Select ontology to merge into"));
-        selectTargetOntologyPage.setInstructions("Please select the target ontology to merge into");
+        registerWizardPanel(SelectTargetOntologyPage.ID, selectTargetOntologyPage = new SelectTargetOntologyPage(editorKit,
+                i18n("i18n.owl.dialog.mergeOntologies.selectTarget.title", "Select ontology to merge into")));
+        selectTargetOntologyPage.setInstructions(i18n("i18n.owl.dialog.mergeOntologies.selectTarget.instructions",
+                "Please select the target ontology to merge into"));
 
         setCurrentPanel(SelectOntologiesPage.ID);
     }
@@ -73,5 +78,10 @@ public class MergeOntologiesWizard extends Wizard {
             }
         }
         return ont;
+    }
+
+    private static String i18n(String key, String fallback) {
+        String value = ProtegeProperties.getInstance().getProperty(key);
+        return value != null ? value : fallback;
     }
 }

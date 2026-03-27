@@ -50,11 +50,11 @@ public abstract class Workspace extends JComponent implements Disposable {
 
     private final Logger logger = LoggerFactory.getLogger(Workspace.class);
 
-    public static final String FILE_MENU_NAME = "File";
+    private static final String FILE_MENU_ID = "org.protege.editor.core.application.menu.FileMenu";
 
-    public static final String WINDOW_MENU_NAME = "Window";
+    private static final String WINDOW_MENU_ID = "org.protege.editor.core.application.menu.window";
 
-    private static final String HELP_MENU_NAME = "Help";
+    private static final String HELP_MENU_ID = "org.protege.editor.core.application.menu.HelpMenu";
 
     public static final String RESULT_PANE_ID = "org.protege.editor.core.resultspane";
 
@@ -66,9 +66,17 @@ public abstract class Workspace extends JComponent implements Disposable {
 
     private final ViewSplitPane leftResultsSplitPane = new ViewSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 
-    private final ViewHolder bottomResultsViewHolder = new ViewHolder("Results", JSplitPane.BOTTOM, bottomResultsSplitPane);
+    private final ViewHolder bottomResultsViewHolder = new ViewHolder(
+            ProtegeProperties.getInstance().getProperty("i18n.workspace.results", "Results"),
+            JSplitPane.BOTTOM,
+            bottomResultsSplitPane
+    );
 
-    private final ViewHolder leftResultsViewHolder = new ViewHolder("R", JSplitPane.LEFT, leftResultsSplitPane);
+    private final ViewHolder leftResultsViewHolder = new ViewHolder(
+            ProtegeProperties.getInstance().getProperty("i18n.workspace.results.short", "R"),
+            JSplitPane.LEFT,
+            leftResultsSplitPane
+    );
 
     private final WorkspaceViewManager viewManager = new WorkspaceViewManager();
 
@@ -123,14 +131,14 @@ public abstract class Workspace extends JComponent implements Disposable {
         for (int i = 0; i < menuBar.getMenuCount(); i++) {
             JMenu menu = menuBar.getMenu(i);
             if (menu != null) {
-                String menuText = menu.getText();
-                if (WINDOW_MENU_NAME.equals(menuText)) {
+                String menuId = menu.getName();
+                if (WINDOW_MENU_ID.equals(menuId) || "Window".equals(menu.getText())) {
                     installLookAndFeelMenu(menu);
                 }
-                else if (FILE_MENU_NAME.equals(menuText)) {
+                else if (FILE_MENU_ID.equals(menuId) || "File".equals(menu.getText())) {
                     installFileMenu(menu);
                 }
-                else if (HELP_MENU_NAME.equals(menuText)) {
+                else if (HELP_MENU_ID.equals(menuId) || "Help".equals(menu.getText())) {
                     installHelpMenu(menu);
                 }
             }
@@ -146,7 +154,7 @@ public abstract class Workspace extends JComponent implements Disposable {
             return;
         }
         helpMenu.addSeparator();
-        JMenuItem aboutMenuItem = helpMenu.add("About");
+        JMenuItem aboutMenuItem = helpMenu.add(ProtegeProperties.getInstance().getProperty("i18n.menu.about", "About"));
         aboutMenuItem.addActionListener(e -> AboutPanel.showDialog());
     }
 
@@ -159,12 +167,12 @@ public abstract class Workspace extends JComponent implements Disposable {
             return;
         }
         fileMenu.addSeparator();
-        JMenuItem prefsMenuItem = fileMenu.add("Preferences...");
+        JMenuItem prefsMenuItem = fileMenu.add(ProtegeProperties.getInstance().getProperty("i18n.menu.preferences", "Preferences..."));
         prefsMenuItem.addActionListener(e -> PreferencesDialogPanel.showPreferencesDialog(null, getEditorKit()));
         prefsMenuItem.setAccelerator(KeyStroke.getKeyStroke(","));
 
         fileMenu.addSeparator();
-        JMenuItem exitMenuItem = fileMenu.add("Exit");
+        JMenuItem exitMenuItem = fileMenu.add(ProtegeProperties.getInstance().getProperty("i18n.menu.exit", "Exit"));
         exitMenuItem.addActionListener(e -> ProtegeApplication.handleQuit());
     }
 
@@ -175,7 +183,7 @@ public abstract class Workspace extends JComponent implements Disposable {
      */
     private void installLookAndFeelMenu(JMenu windowMenu) {
         windowMenu.addSeparator();
-        JMenu menu = new JMenu("Look & Feel");
+        JMenu menu = new JMenu(ProtegeProperties.getInstance().getProperty("i18n.core.lookAndFeel.menu", "Look & Feel"));
         ButtonGroup lafMenuItemGroup = new ButtonGroup();
 
         windowMenu.add(menu);
@@ -204,7 +212,7 @@ public abstract class Workspace extends JComponent implements Disposable {
                 lafMenuItemGroup,
                 selectedLookAndFeelClassName,
                 UIManager.getCrossPlatformLookAndFeelClassName(),
-                Optional.of("Cross-platform")
+                Optional.of(ProtegeProperties.getInstance().getProperty("i18n.core.lookAndFeel.crossPlatform", "Cross-platform"))
         );
     }
 
@@ -242,11 +250,17 @@ public abstract class Workspace extends JComponent implements Disposable {
             Preferences p = PreferencesManager.getInstance().getApplicationPreferences(ProtegeApplication.LOOK_AND_FEEL_KEY);
             p.putString(ProtegeApplication.LOOK_AND_FEEL_CLASS_NAME, clsName);
             JOptionPane.showMessageDialog(this,
-                    "<html><body><div style=\"font-weight: bold;\">The Look & Feel has been set to " + shortName + ".</div>" +
-                            "<div>Please restart " + ProtegeProperties.PROTEGE + " for the changes to take effect.<div></body></html>");
+                    String.format(ProtegeProperties.getInstance().getProperty("i18n.core.lookAndFeel.setMessageHtml"),
+                                  shortName,
+                                  ProtegeProperties.PROTEGE),
+                    ProtegeProperties.getInstance().getProperty("i18n.dialog.informationTitle"),
+                    JOptionPane.INFORMATION_MESSAGE);
         }
         catch (Exception e1) {
-            JOptionPane.showMessageDialog(this, "There was a problem setting the look and feel.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this,
+                                          ProtegeProperties.getInstance().getProperty("i18n.core.lookAndFeel.errorMessage"),
+                                          ProtegeProperties.getInstance().getProperty("i18n.dialog.errorTitle"),
+                                          JOptionPane.ERROR_MESSAGE);
             logger.error("Error whilst setting look and feel: {}", e1);
         }
     }

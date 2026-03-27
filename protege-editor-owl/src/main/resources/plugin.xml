@@ -35,7 +35,7 @@
 
     <extension id="OWLEditorKitFactory"
                point="org.protege.editor.core.application.EditorKitFactory">
-        <label value="OWL ontology"/>
+        <label value="@i18n.owl.label.owlOntology"/>
         <class value="org.protege.editor.owl.OWLEditorKitFactory"/>
     </extension>
 
@@ -44,7 +44,7 @@
 
     <extension id="OWLClassExpressionExpressionEditor"
                point="org.protege.editor.owl.ui_editor_description">
-        <label value="Class expression editor"/>
+        <label value="@i18n.owl.label.classExpressionEditor"/>
         <class value="org.protege.editor.owl.ui.editor.OWLClassExpressionExpressionEditor"/>
         <index value="A"/>
     </extension>
@@ -52,7 +52,7 @@
 
     <extension id="OWLClassSelectorWrapper"
                point="org.protege.editor.owl.ui_editor_description">
-        <label value="Class hierarchy"/>
+        <label value="@i18n.owl.label.classHierarchy"/>
         <class value="org.protege.editor.owl.ui.editor.OWLClassSelectorWrapper"/>
         <index value="B"/>
     </extension>
@@ -60,7 +60,7 @@
 
     <extension id="OWLObjectRestrictionCreatorPanel"
                point="org.protege.editor.owl.ui_editor_description">
-        <label value="Object restriction creator"/>
+        <label value="@i18n.owl.label.objectRestrictionCreator"/>
         <class value="org.protege.editor.owl.ui.editor.OWLObjectRestrictionCreatorPanel"/>
         <index value="C"/>
     </extension>
@@ -68,7 +68,7 @@
 
     <extension id="OWLDataRestrictionCreatorPanel"
                point="org.protege.editor.owl.ui_editor_description">
-        <label value="Data restriction creator"/>
+        <label value="@i18n.owl.label.dataRestrictionCreator"/>
         <class value="org.protege.editor.owl.ui.editor.OWLDataRestrictionCreatorPanel"/>
         <index value="D"/>
     </extension>
@@ -80,34 +80,34 @@
 
     <extension id="ui.preferences.renderer"
                point="org.protege.editor.core.application.preferencespanel">
-        <label value="Renderer"/>
+        <label value="@i18n.owl.label.renderer"/>
         <class value="org.protege.editor.owl.ui.renderer.conf.RendererPreferencesPanel"/>
     </extension>
 
     <extension id="org.protege.editor.owl.ui.preferences.annotation"
                point="org.protege.editor.core.application.preferencespanel">
-        <label value="Annotations"/>
+        <label value="@i18n.owl.label.annotations"/>
         <class value="org.protege.editor.owl.ui.preferences.AnnotationPreferencesPanel"/>
     </extension>
 
     <extension id="ui.preferences.newentity"
                point="org.protege.editor.core.application.preferencespanel">
-        <label value="New entities"/>
+        <label value="@i18n.owl.label.newEntities"/>
         <class value="org.protege.editor.owl.ui.preferences.NewEntitiesPreferencesPanel"/>
     </extension>
     
     <extension id="ui.view.menu"
     		   point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="View"/>
-        <toolTip value="Set Entity Rendering"/>
+        <name value="@i18n.menu.view"/>
+        <toolTip value="@i18n.owl.view.menu.tooltip"/>
         <path value="/SlotCR-A"/>
 	    <editorKitId value="OWLEditorKit"/>
     </extension>
     
     <extension id="ui.view.menu.byid"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Render by entity IRI short name (Id)"/>
-        <toolTip value="Render entity by IRI (path element or fragment)"/>
+        <name value="@i18n.owl.view.renderById"/>
+        <toolTip value="@i18n.owl.view.renderById.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAA-A"/>
         <class value="org.protege.editor.owl.ui.renderer.menu.RenderById"/>
         <editorKitId value="OWLEditorKit"/>
@@ -116,8 +116,8 @@
 
     <extension id="ui.view.menu.byprefixedname"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Render by prefixed name"/>
-        <toolTip value="Render entity by prefixed name e.g. owl:Thing"/>
+        <name value="@i18n.owl.view.renderByPrefixedName"/>
+        <toolTip value="@i18n.owl.view.renderByPrefixedName.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAA-B"/>
         <class value="org.protege.editor.owl.ui.renderer.menu.RenderByPrefixedName"/>
         <editorKitId value="OWLEditorKit"/>
@@ -126,8 +126,8 @@
 
     <extension id="ui.view.menu.bylabel"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Render by label (rdfs:label)"/>
-        <toolTip value="Render entity by the values of rdfs:label"/>
+        <name value="@i18n.owl.view.renderByLabel"/>
+        <toolTip value="@i18n.owl.view.renderByLabel.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAA-C"/>
         <class value="org.protege.editor.owl.ui.renderer.menu.RenderByLabel"/>
         <editorKitId value="OWLEditorKit"/>
@@ -136,8 +136,8 @@
 
     <extension id="ui.view.menu.byprop"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Render by annotation property"/>
-        <toolTip value="Render entity by the values of an annotation property"/>
+        <name value="@i18n.owl.view.renderByProperty"/>
+        <toolTip value="@i18n.owl.view.renderByProperty.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAA-D"/>
         <class value="org.protege.editor.owl.ui.renderer.menu.RenderByProperty"/>
         <editorKitId value="OWLEditorKit"/>
@@ -147,8 +147,8 @@
             
     <extension id="ui.view.menu.byconfigure"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Custom rendering..."/>
-        <toolTip value="Open the rendering configuration panel" />
+        <name value="@i18n.owl.view.customRendering"/>
+        <toolTip value="@i18n.owl.view.customRendering.tooltip" />
         <path value="org.protege.editor.owl.ui.view.menu/SlotAA-E"/>
         <class value="org.protege.editor.owl.ui.renderer.menu.ConfigureRenderer"/>
         <editorKitId value="OWLEditorKit"/>
@@ -157,8 +157,8 @@
 
     <extension id="ui.view.menu.inlineannotationrendering"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Display axiom annotations inline"/>
-        <toolTip value="Display axiom annotations inline"/>
+        <name value="@i18n.owl.view.inlineAxiomAnnotations"/>
+        <toolTip value="@i18n.owl.view.inlineAxiomAnnotations.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAAA-A"/>
         <class value="org.protege.editor.owl.ui.renderer.InlineAnnotationRenderingAction"/>
         <editorKitId value="OWLEditorKit"/>
@@ -168,8 +168,8 @@
 
     <extension id="ui.view.menu.inlinedatatyperendering"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Display datatypes on annotation values"/>
-        <toolTip value="Display datatypes on annotation values"/>
+        <name value="@i18n.owl.view.inlineDatatypes"/>
+        <toolTip value="@i18n.owl.view.inlineDatatypes.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAAA-AB"/>
         <class value="org.protege.editor.owl.ui.renderer.InlineDatatypeRenderingAction"/>
         <editorKitId value="OWLEditorKit"/>
@@ -179,8 +179,8 @@
 
     <extension id="ui.view.menu.inlinethumbnailrendering"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Display thumbnails for image URLs"/>
-        <toolTip value="Display thumbnail images for annotation values that are image URLs"/>
+        <name value="@i18n.owl.view.inlineThumbnails"/>
+        <toolTip value="@i18n.owl.view.inlineThumbnails.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAAA-AC"/>
         <class value="org.protege.editor.owl.ui.renderer.InlineThumbnailRenderingAction"/>
         <editorKitId value="OWLEditorKit"/>
@@ -190,9 +190,9 @@
 
     <extension id="tree.showdeprecatedentities"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Display deprecated (obsolete) entities"/>
+        <name value="@i18n.owl.view.displayDeprecatedEntities"/>
         <class value="org.protege.editor.owl.ui.action.DisplayDeprecatedEntitiesAction"/>
-        <toolTip value="Display deprecated entities in the currently focused view"/>
+        <toolTip value="@i18n.owl.view.displayDeprecatedEntities.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAAA-AD"/>
         <editorKitId value="OWLEditorKit"/>
         <checkbox value="true"/>
@@ -200,9 +200,9 @@
 
     <extension id="tree.showrelationships"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Display relationships in class hierarchy"/>
+        <name value="@i18n.owl.view.displayRelationshipsInClassHierarchy"/>
         <class value="org.protege.editor.owl.model.hierarchy.DisplayRelationshipsInClassHierarchyAction"/>
-        <toolTip value="Display relationships in the class hierarchy"/>
+        <toolTip value="@i18n.owl.view.displayRelationshipsInClassHierarchy.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAAA-AE"/>
         <editorKitId value="OWLEditorKit"/>
         <checkbox value="true"/>
@@ -210,9 +210,9 @@
 
     <extension id="tree.displayfromontologyroots"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Display from ontology roots"/>
+        <name value="@i18n.owl.view.displayFromOntologyRoots"/>
         <class value="org.protege.editor.owl.ui.action.DisplayHierarchyFromOntologyRootsAction"/>
-        <toolTip value="Only display classes that are below the ontology root(s)"/>
+        <toolTip value="@i18n.owl.view.displayFromOntologyRoots.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAAA-AF"/>
         <editorKitId value="OWLEditorKit"/>
         <checkbox value="true"/>
@@ -220,9 +220,9 @@
 
     <extension id="showbreadcrumbtrail"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Show breadcrumb trail"/>
+        <name value="@i18n.owl.view.showBreadcrumbTrail"/>
         <class value="org.protege.editor.owl.ui.breadcrumb.ShowBreadcrumbTrailAction"/>
-        <toolTip value="Show a breadcrumb trail for the current selection"/>
+        <toolTip value="@i18n.owl.view.showBreadcrumbTrail.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAAAB-A"/>
         <editorKitId value="OWLEditorKit"/>
         <checkbox value="true"/>
@@ -232,9 +232,9 @@
 
     <extension id="ontologies.activeontology"
                 point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Show only the active ontology"/>
+        <name value="@i18n.owl.view.showOnlyActiveOntology"/>
         <class value="org.protege.editor.owl.ui.action.ActiveOntologyStrategyAction"/>
-        <toolTip value="Only the active ontology is visible"/>
+        <toolTip value="@i18n.owl.view.showOnlyActiveOntology.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAB-C"/>
         <editorKitId value="OWLEditorKit"/>
         <radiobutton value="true"/>
@@ -242,9 +242,9 @@
 
     <extension id="ontologies.importsclosure"
                 point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Show the imports closure of the active ontology"/>
+        <name value="@i18n.owl.view.showImportsClosureOfActiveOntology"/>
         <class value="org.protege.editor.owl.ui.action.ImportsClosureOntologyStrategyAction"/>
-        <toolTip value="Ontologies that are in the imports closure of the active ontology are visible"/>
+        <toolTip value="@i18n.owl.view.showImportsClosureOfActiveOntology.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAB-A"/>
         <editorKitId value="OWLEditorKit"/>
         <radiobutton value="true"/>
@@ -252,9 +252,9 @@
 
     <extension id="ontologies.allontologies"
                 point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Show all loaded ontologies"/>
+        <name value="@i18n.owl.view.showAllLoadedOntologies"/>
         <class value="org.protege.editor.owl.ui.action.AllOntologiesStrategyAction"/>
-        <toolTip value="All loaded ontologies are visible"/>
+        <toolTip value="@i18n.owl.view.showAllLoadedOntologies.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotAB-B"/>
         <editorKitId value="OWLEditorKit"/>
         <radiobutton value="true"/>
@@ -264,9 +264,9 @@
 
     <extension id="tree.expandall"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Expand all"/>
+        <name value="@i18n.owl.view.expandAll"/>
         <class value="org.protege.editor.owl.ui.action.ExpandAllAction"/>
-        <toolTip value="Expand all nodes in the focused tree"/>
+        <toolTip value="@i18n.owl.view.expandAll.tooltip"/>
         <path value="org.protege.editor.owl.ui.view.menu/SlotB-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -276,21 +276,21 @@
     
     <extension id="OWLEntityRenderer"
     		   point="org.protege.editor.owl.entity_renderer">
-       <name value="Render by entity IRI short name (Id)"/>
+       <name value="@i18n.owl.entityRenderer.byIriShortName"/>
        <class value="org.protege.editor.owl.ui.renderer.OWLEntityRendererImpl"/>
        <sortPosition value="A"/>
     </extension>
 
     <extension id="OWLEntityPrefixedNameRenderer"
     		   point="org.protege.editor.owl.entity_renderer">
-       <name value="Render by prefixed name"/>
+       <name value="@i18n.owl.entityRenderer.byPrefixedName"/>
        <class value="org.protege.editor.owl.ui.prefix.OWLEntityPrefixedNameRenderer"/>
        <sortPosition value="B"/>
     </extension>
 
     <extension id="OWLEntityAnnotationValueRenderer"
     		   point="org.protege.editor.owl.entity_renderer">
-       <name value="Render by annotation property (e.g., rdfs:label, skos:prefLabel)"/>
+       <name value="@i18n.owl.entityRenderer.byAnnotationProperty"/>
        <class value="org.protege.editor.owl.ui.renderer.OWLEntityAnnotationValueRenderer"/>
        <sortPosition value="C"/>
        <ontologyAnnotationSpecifier value="http://http://protege.org/ui/render/displayWithLabel"/>
@@ -298,7 +298,7 @@
 
     <extension id="PrefixedOWLEntityAnnotationValueRenderer"
     		   point="org.protege.editor.owl.entity_renderer">
-       <name value="Render by prefixed annotation property"/>
+       <name value="@i18n.owl.entityRenderer.byPrefixedAnnotationProperty"/>
        <class value="org.protege.editor.owl.ui.renderer.PrefixedOWLEntityAnnotationValueRenderer"/>
        <sortPosition value="D"/>
     </extension>
@@ -308,7 +308,7 @@
 
     <extension id="OWLOntologyTab"
                point="org.protege.editor.core.application.WorkspaceTab">
-        <label value="Active ontology"/>
+        <label value="@i18n.owl.label.activeOntology"/>
         <class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
         <editorKitId value="OWLEditorKit"/>
         <index value="A"/>
@@ -320,7 +320,7 @@
 
     <extension id="OWLEntitesTab"
                point="org.protege.editor.core.application.WorkspaceTab">
-        <label value="Entities"/>
+        <label value="@i18n.owl.label.entities"/>
         <class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
         <editorKitId value="OWLEditorKit"/>
         <index value="B"/>
@@ -332,7 +332,7 @@
 
     <extension id="OWLClassesTab"
                point="org.protege.editor.core.application.WorkspaceTab">
-        <label value="Classes"/>
+        <label value="@i18n.owl.label.classes"/>
         <class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
         <editorKitId value="OWLEditorKit"/>
         <index value="C"/>
@@ -343,7 +343,7 @@
 
     <extension id="OWLObjectPropertiesTab"
                point="org.protege.editor.core.application.WorkspaceTab">
-        <label value="Object properties"/>
+        <label value="@i18n.owl.label.objectProperties"/>
         <class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
         <editorKitId value="OWLEditorKit"/>
         <index value="D"/>
@@ -354,7 +354,7 @@
 
     <extension id="OWLDataPropertiesTab"
                point="org.protege.editor.core.application.WorkspaceTab">
-        <label value="Data properties"/>
+        <label value="@i18n.owl.label.dataProperties"/>
         <class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
         <editorKitId value="OWLEditorKit"/>
         <index value="E"/>
@@ -365,7 +365,7 @@
 
     <extension id="OWLAnnotationsPropertiesTab"
                point="org.protege.editor.core.application.WorkspaceTab">
-        <label value="Annotation properties"/>
+        <label value="@i18n.owl.label.annotationProperties"/>
         <class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
         <editorKitId value="OWLEditorKit"/>
         <index value="F"/>
@@ -376,7 +376,7 @@
 
     <extension id="OWLIndividualsTab"
                point="org.protege.editor.core.application.WorkspaceTab">
-        <label value="Individuals by class"/>
+        <label value="@i18n.owl.label.individualsByClass"/>
         <class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
         <editorKitId value="OWLEditorKit"/>
         <index value="G"/>
@@ -392,7 +392,7 @@
 
     <extension id="OWLAssertedClassHierarchy"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Class hierarchy"/>
+        <label value="@i18n.owl.label.classHierarchy"/>
         <class value="org.protege.editor.owl.ui.view.cls.ToldOWLClassHierarchyViewComponent"/>
         <headerColor value="@org.protege.classcolor"/>
         <category value="@org.protege.classcategory"/>
@@ -402,7 +402,7 @@
 
     <extension id="InferredOWLClassHierarchy"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Class hierarchy (inferred)"/>
+        <label value="@i18n.owl.label.classHierarchyInferred"/>
         <class value="org.protege.editor.owl.ui.view.cls.InferredOWLClassHierarchyViewComponent"/>
         <headerColor value="@org.protege.classcolor"/>
         <category value="@org.protege.classcategory"/>
@@ -411,7 +411,7 @@
     <extension
             id="OWLAssertedSuperClassHierarchy"
             point="org.protege.editor.core.application.ViewComponent">
-        <label value="Superclass hierarchy"/>
+        <label value="@i18n.owl.label.superclassHierarchy"/>
         <class value="org.protege.editor.owl.ui.view.cls.ToldSuperClassHierarchyViewComponent"/>
         <headerColor value="@org.protege.classcolor"/>
         <category value="@org.protege.classcategory"/>
@@ -421,7 +421,7 @@
     <extension
             id="OWLInferredSuperClassHierarchy"
             point="org.protege.editor.core.application.ViewComponent">
-        <label value="Superclass hierarchy (inferred)"/>
+        <label value="@i18n.owl.label.superclassHierarchyInferred"/>
         <class value="org.protege.editor.owl.ui.view.cls.InferredSuperClassHierarchyViewComponent"/>
         <headerColor value="@org.protege.classcolor"/>
         <category value="@org.protege.classcategory"/>
@@ -430,7 +430,7 @@
 
     <extension id="OWLClassAnnotations"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Annotations"/>
+        <label value="@i18n.owl.label.annotations"/>
         <class value="org.protege.editor.owl.ui.view.cls.OWLClassAnnotationsViewComponent"/>
         <headerColor value="@org.protege.classcolor"/>
         <category value="@org.protege.classcategory"/>
@@ -440,7 +440,7 @@
 
     <extension id="OWLClassDescription"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Description"/>
+        <label value="@i18n.owl.label.description"/>
         <class value="org.protege.editor.owl.ui.view.cls.OWLClassDescriptionViewComponent"/>
         <headerColor value="@org.protege.classcolor"/>
         <category value="@org.protege.classcategory"/>
@@ -451,7 +451,7 @@
 
     <extension id="GeneralClassAxioms"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="General class axioms"/>
+        <label value="@i18n.owl.label.generalClassAxioms"/>
         <class value="org.protege.editor.owl.ui.view.OWLGeneralAxiomsViewComponent"/>
         <headerColor value="@org.protege.ontologycolor"/>
         <category value="@org.protege.classcategory"/>
@@ -462,7 +462,7 @@
 
     <extension id="OWLObjectPropertyTree"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Object property hierarchy"/>
+        <label value="@i18n.owl.label.objectPropertyHierarchy"/>
         <class value="org.protege.editor.owl.ui.view.objectproperty.OWLObjectPropertyHierarchyViewComponent"/>
         <headerColor value="@org.protege.objectpropertycolor"/>
         <category value="@org.protege.objectpropertycategory"/>
@@ -473,7 +473,7 @@
 
     <extension id="InferredObjectPropertyTree"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Object property hierarchy (inferred)"/>
+        <label value="@i18n.owl.label.objectPropertyHierarchyInferred"/>
         <class value="org.protege.editor.owl.ui.view.objectproperty.InferredObjectPropertyHierarchyViewComponent"/>
         <headerColor value="@org.protege.objectpropertycolor"/>
         <category value="@org.protege.objectpropertycategory"/>
@@ -483,7 +483,7 @@
     <extension
             id="OWLObjectPropertyAnnotations"
             point="org.protege.editor.core.application.ViewComponent">
-        <label value="Annotations"/>
+        <label value="@i18n.owl.label.annotations"/>
         <class value="org.protege.editor.owl.ui.view.objectproperty.OWLObjectPropertyAnnotationsViewComponent"/>
         <headerColor value="@org.protege.objectpropertycolor"/>
         <category value="@org.protege.objectpropertycategory"/>
@@ -493,7 +493,7 @@
     <extension
             id="OWLObjectPropertyDescription"
             point="org.protege.editor.core.application.ViewComponent">
-        <label value="Description"/>
+        <label value="@i18n.owl.label.description"/>
         <class value="org.protege.editor.owl.ui.view.objectproperty.OWLObjectPropertyDescriptionViewComponent"/>
         <headerColor value="@org.protege.objectpropertycolor"/>
         <category value="@org.protege.objectpropertycategory"/>
@@ -505,7 +505,7 @@
     <extension
             id="OWLObjectPropertyDomainsAndRanges"
             point="org.protege.editor.core.application.ViewComponent">
-        <label value="Domains and ranges"/>
+        <label value="@i18n.owl.label.domainsAndRanges"/>
         <class value="org.protege.editor.owl.ui.view.objectproperty.OWLObjectPropertyDomainsAndRangesViewComponent"/>
         <headerColor value="@org.protege.objectpropertycolor"/>
         <category value="@org.protege.objectpropertycategory"/>
@@ -515,7 +515,7 @@
     <extension
             id="OWLObjectPropertyCharacteristics"
             point="org.protege.editor.core.application.ViewComponent">
-        <label value="Characteristics"/>
+        <label value="@i18n.owl.label.characteristics"/>
         <class value="org.protege.editor.owl.ui.view.objectproperty.OWLObjectPropertyCharacteristicsViewComponent"/>
         <headerColor value="@org.protege.objectpropertycolor"/>
         <category value="@org.protege.objectpropertycategory"/>
@@ -527,7 +527,7 @@
 
     <extension id="OWLDataPropertyTree"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Data property hierarchy"/>
+        <label value="@i18n.owl.label.dataPropertyHierarchy"/>
         <class value="org.protege.editor.owl.ui.view.dataproperty.OWLDataPropertyHierarchyViewComponent"/>
         <headerColor value="@org.protege.datapropertycolor"/>
         <category value="@org.protege.datapropertycategory"/>
@@ -538,7 +538,7 @@
 
     <extension id="OWLDataPropertyDescription"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Description"/>
+        <label value="@i18n.owl.label.description"/>
         <class value="org.protege.editor.owl.ui.view.dataproperty.OWLDataPropertyDescriptionViewComponent"/>
         <headerColor value="@org.protege.datapropertycolor"/>
         <category value="@org.protege.datapropertycategory"/>
@@ -547,7 +547,7 @@
 
     <extension id="OWLDataPropertyAnnotations"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Annotations"/>
+        <label value="@i18n.owl.label.annotations"/>
         <class value="org.protege.editor.owl.ui.view.dataproperty.OWLDataPropertyAnnotationsViewComponent"/>
         <headerColor value="@org.protege.datapropertycolor"/>
         <category value="@org.protege.datapropertycategory"/>
@@ -557,7 +557,7 @@
 
     <extension id="OWLDataPropertyDomainsAndRanges"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Domains and ranges"/>
+        <label value="@i18n.owl.label.domainsAndRanges"/>
         <class value="org.protege.editor.owl.ui.view.dataproperty.OWLDataPropertyDomainsAndRangesViewComponent"/>
         <headerColor value="@org.protege.datapropertycolor"/>
         <category value="@org.protege.datapropertycategory"/>
@@ -567,7 +567,7 @@
     <extension
             id="OWLDataPropertyCharacteristics"
             point="org.protege.editor.core.application.ViewComponent">
-        <label value="Characteristics"/>
+        <label value="@i18n.owl.label.characteristics"/>
         <class value="org.protege.editor.owl.ui.view.dataproperty.OWLDataPropertyCharacteristicsViewComponent"/>
         <headerColor value="@org.protege.datapropertycolor"/>
         <category value="@org.protege.datapropertycategory"/>
@@ -578,7 +578,7 @@
 
     <extension id="OWLIndividualsList"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Individuals"/>
+        <label value="@i18n.owl.label.individuals"/>
         <class value="org.protege.editor.owl.ui.view.individual.OWLIndividualListViewComponent"/>
         <headerColor value="@org.protege.individualcolor"/>
         <category value="@org.protege.individualcategory"/>
@@ -588,7 +588,7 @@
 
     <extension id="OWLIndividualsByType"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Individuals by type"/>
+        <label value="@i18n.owl.label.individualsByType"/>
         <class value="org.protege.editor.owl.ui.view.individual.OWLIndividualsByTypeViewComponent"/>
         <headerColor value="@org.protege.individualcolor"/>
         <category value="@org.protege.individualcategory"/>
@@ -599,7 +599,7 @@
 
     <extension id="OWLIndividualsByInferredType"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Individuals by type (inferred)"/>
+        <label value="@i18n.owl.label.individualsByTypeInferred"/>
         <class value="org.protege.editor.owl.ui.view.individual.OWLIndividualsByInferredTypeViewComponent"/>
         <headerColor value="@org.protege.individualcolor"/>
         <category value="@org.protege.individualcategory"/>
@@ -610,7 +610,7 @@
 
     <extension id="OWLMembersList"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Direct instances"/>
+        <label value="@i18n.owl.label.directInstances"/>
         <class value="org.protege.editor.owl.ui.view.individual.OWLMembersListViewComponent"/>
         <headerColor value="@org.protege.individualcolor"/>
         <category value="@org.protege.individualcategory"/>
@@ -620,7 +620,7 @@
     
     <extension id="OWLInferredMembersList"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Direct instances (inferred)"/>
+        <label value="@i18n.owl.label.directInstancesInferred"/>
         <class value="org.protege.editor.owl.ui.view.individual.OWLInferredMemberListViewComponent"/>
         <headerColor value="@org.protege.individualcolor"/>
         <category value="@org.protege.individualcategory"/>
@@ -630,7 +630,7 @@
 
     <extension id="OWLIndividualAnnotations"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Annotations"/>
+        <label value="@i18n.owl.label.annotations"/>
         <class value="org.protege.editor.owl.ui.view.individual.OWLIndividualAnnotationsViewComponent"/>
         <headerColor value="@org.protege.individualcolor"/>
         <category value="@org.protege.individualcategory"/>
@@ -640,7 +640,7 @@
 
     <extension id="OWLIndividualTypes"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Description"/>
+        <label value="@i18n.owl.label.description"/>
         <class value="org.protege.editor.owl.ui.view.individual.OWLIndividualDescriptionViewComponent"/>
         <headerColor value="@org.protege.individualcolor"/>
         <category value="@org.protege.individualcategory"/>
@@ -650,7 +650,7 @@
 
     <extension id="OWLIndividualRelationships"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Property assertions"/>
+        <label value="@i18n.owl.label.propertyAssertions"/>
         <class value="org.protege.editor.owl.ui.view.individual.OWLIndividualPropertyAssertionsViewComponent"/>
         <headerColor value="@org.protege.individualcolor"/>
         <category value="@org.protege.individualcategory"/>
@@ -661,7 +661,7 @@
 
     <extension id="OWLAnnotationPropertyTree"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Annotation property hierarchy"/>
+        <label value="@i18n.owl.label.annotationPropertyHierarchy"/>
         <class value="org.protege.editor.owl.ui.view.annotationproperty.OWLAnnotationPropertyHierarchyViewComponent"/>
         <headerColor value="@org.protege.annotationscolor"/>
         <category value="@org.protege.annotationpropertycategory"/>
@@ -671,7 +671,7 @@
 
     <extension id="OWLAnnotationPropertyAnnotations"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Annotations"/>
+        <label value="@i18n.owl.label.annotations"/>
         <class value="org.protege.editor.owl.ui.view.annotationproperty.OWLAnnotationPropertyAnnotationsViewComponent"/>
         <headerColor value="@org.protege.annotationscolor"/>
         <category value="@org.protege.annotationpropertycategory"/>
@@ -681,7 +681,7 @@
 
     <extension id="OWLAnnotationPropertyDescription"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Description"/>
+        <label value="@i18n.owl.label.description"/>
         <class value="org.protege.editor.owl.ui.view.annotationproperty.OWLAnnotationPropertyDescriptionViewComponent"/>
         <headerColor value="@org.protege.annotationscolor"/>
         <category value="@org.protege.annotationpropertycategory"/>
@@ -692,7 +692,7 @@
 
     <extension id="OWLDatatypeList"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Datatypes"/>
+        <label value="@i18n.owl.label.datatypes"/>
         <class value="org.protege.editor.owl.ui.view.datatype.OWLDataTypeViewComponent"/>
         <headerColor value="@org.protege.datatypecolor"/>
         <category value="@org.protege.datatypecategory"/>
@@ -702,7 +702,7 @@
 
     <extension id="OWLDatatypeAnnotations"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Annotations"/>
+        <label value="@i18n.owl.label.annotations"/>
         <class value="org.protege.editor.owl.ui.view.datatype.OWLDataTypeAnnotationsViewComponent"/>
         <headerColor value="@org.protege.datatypecolor"/>
         <category value="@org.protege.datatypecategory"/>
@@ -712,7 +712,7 @@
 
     <extension id="OWLDatatypeDescription"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Description"/>
+        <label value="@i18n.owl.label.description"/>
         <class value="org.protege.editor.owl.ui.view.datatype.OWLDataTypeDescriptionViewComponent"/>
         <headerColor value="@org.protege.datatypecolor"/>
         <category value="@org.protege.datatypecategory"/>
@@ -723,7 +723,7 @@
 
     <extension id="SelectedEntityView"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Selected entity"/>
+        <label value="@i18n.owl.label.selectedEntity"/>
         <class value="org.protege.editor.owl.ui.view.SelectedEntityCardView"/>
         <headerColor value="565656"/>
     </extension>
@@ -731,7 +731,7 @@
 
     <extension id="OWLAxiomAnnotationsView"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Axiom annotations"/>
+        <label value="@i18n.owl.label.axiomAnnotations"/>
         <class value="org.protege.editor.owl.ui.view.OWLAxiomAnnotationsView"/>
         <headerColor value="@#000000"/>
     </extension>
@@ -739,7 +739,7 @@
 
     <extension id="ManchesterSyntaxFrameView"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Manchester syntax entity rendering"/>
+        <label value="@i18n.owl.label.manchesterSyntaxEntityRendering"/>
         <class value="org.protege.editor.owl.ui.view.ManchesterSyntaxFrameView"/>
         <navigates value="@org.protege.classcategory"/>
         <navigates value="@org.protege.objectpropertycategory"/>
@@ -752,7 +752,7 @@
 
     <extension id="OWLOntologyAnnotationsView"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Ontology header"/>
+        <label value="@i18n.owl.label.ontologyHeader"/>
         <class value="org.protege.editor.owl.ui.view.ontology.OWLOntologyAnnotationViewComponent"/>
         <headerColor value="@org.protege.ontologycolor"/>
         <category value="@org.protege.ontologycategory"/>
@@ -761,7 +761,7 @@
 
     <extension id="OWLOntologyPrefixesView"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Ontology prefixes"/>
+        <label value="@i18n.owl.label.ontologyPrefixes"/>
         <class value="org.protege.editor.owl.ui.prefix.PrefixMapperView"/>
         <headerColor value="@org.protege.ontologycolor"/>
         <category value="@org.protege.ontologycategory"/>
@@ -769,7 +769,7 @@
 
     <extension id="OWLOntologyMetricsView"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Ontology metrics"/>
+        <label value="@i18n.owl.label.ontologyMetrics"/>
         <class value="org.protege.editor.owl.ui.metrics.AxiomMetricsViewComponent"/>
         <headerColor value="@org.protege.ontologycolor"/>
         <category value="@org.protege.ontologycategory"/>
@@ -779,7 +779,7 @@
 
     <extension id="OWLOntologyImportsTable"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Imported ontologies"/>
+        <label value="@i18n.owl.label.importedOntologies"/>
         <class value="org.protege.editor.owl.ui.view.ontology.OWLImportsDeclarationsViewComponent"/>
         <headerColor value="@org.protege.ontologycolor"/>
         <category value="@org.protege.ontologycategory"/>
@@ -789,7 +789,7 @@
 
     <extension id="Rules"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Rules"/>
+        <label value="@i18n.owl.label.rules"/>
         <class value="org.protege.editor.owl.ui.view.SWRLRulesViewComponent"/>
         <headerColor value="@org.protege.ontologycolor"/>
         <category value="@org.protege.ontologycategory"/>
@@ -798,7 +798,7 @@
 
     <extension id="InferredAxioms"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Classification results"/>
+        <label value="@i18n.owl.label.classificationResults"/>
         <class value="org.protege.editor.owl.ui.view.InferredAxiomsViewComponent"/>
         <headerColor value="@org.protege.ontologycolor"/>
         <category value="@org.protege.ontologycategory"/>
@@ -808,7 +808,7 @@
 
     <extension id="RDFXML"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="RDF/XML rendering"/>
+        <label value="@i18n.owl.label.rdfXmlRendering"/>
         <class value="org.protege.editor.owl.ui.view.ontology.RDFXMLRenderingViewComponent"/>
         <headerColor value="@org.protege.ontologycolor"/>
         <category value="@org.protege.ontologycategory"/>
@@ -816,7 +816,7 @@
 
     <extension id="OWLXML"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="OWL/XML rendering"/>
+        <label value="@i18n.owl.label.owlXmlRendering"/>
         <class value="org.protege.editor.owl.ui.view.ontology.OWLXMLRenderingViewComponent"/>
         <headerColor value="@org.protege.ontologycolor"/>
         <category value="@org.protege.ontologycategory"/>
@@ -825,7 +825,7 @@
 
     <extension id="ManchesterOWLSyntax"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Manchester syntax rendering"/>
+        <label value="@i18n.owl.label.manchesterSyntaxRendering"/>
         <class value="org.protege.editor.owl.ui.view.ontology.ManchesterSyntaxRenderingViewComponent"/>
         <headerColor value="@org.protege.ontologycolor"/>
         <category value="@org.protege.ontologycategory"/>
@@ -833,7 +833,7 @@
 
     <extension id="OWLFunctionalSyntax"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="OWL functional syntax rendering"/>
+        <label value="@i18n.owl.label.owlFunctionalSyntaxRendering"/>
         <class value="org.protege.editor.owl.ui.view.ontology.OWLFunctionalSyntaxRenderingViewComponent"/>
         <headerColor value="@org.protege.ontologycolor"/>
         <category value="@org.protege.ontologycategory"/>
@@ -844,7 +844,7 @@
 
     <extension id="OWLClassUsageView"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Usage"/>
+        <label value="@i18n.owl.label.usage"/>
         <class value="org.protege.editor.owl.ui.view.cls.OWLClassUsageViewComponent"/>
         <headerColor value="@org.protege.classcolor"/>
         <category value="@org.protege.classcategory"/>
@@ -853,7 +853,7 @@
 
     <extension id="OWLObjectPropertyUsageView"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Usage"/>
+        <label value="@i18n.owl.label.usage"/>
         <class value="org.protege.editor.owl.ui.view.objectproperty.OWLObjectPropertyUsageViewComponent"/>
         <headerColor value="@org.protege.objectpropertycolor"/>
         <category value="@org.protege.objectpropertycategory"/>
@@ -862,7 +862,7 @@
 
     <extension id="OWLDataPropertyUsageView"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Usage"/>
+        <label value="@i18n.owl.label.usage"/>
         <class value="org.protege.editor.owl.ui.view.dataproperty.OWLDataPropertyUsageViewComponent"/>
         <headerColor value="@org.protege.datapropertycolor"/>
         <category value="@org.protege.datapropertycategory"/>
@@ -871,7 +871,7 @@
 
     <extension id="OWLAnnotationPropertyUsageView"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Usage"/>
+        <label value="@i18n.owl.label.usage"/>
         <class value="org.protege.editor.owl.ui.view.annotationproperty.OWLAnnotationPropertyUsageViewComponent"/>
         <headerColor value="@org.protege.annotationscolor"/>
         <category value="@org.protege.annotationpropertycategory"/>
@@ -880,7 +880,7 @@
 
     <extension id="OWLIndividualUsageView"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Usage"/>
+        <label value="@i18n.owl.label.usage"/>
         <class value="org.protege.editor.owl.ui.view.individual.OWLIndividualUsageViewComponent"/>
         <headerColor value="@org.protege.individualcolor"/>
         <category value="@org.protege.individualcategory"/>
@@ -889,7 +889,7 @@
 
     <extension id="OWLDatatypeUsageView"
                point="org.protege.editor.core.application.ViewComponent">
-        <label value="Usage"/>
+        <label value="@i18n.owl.label.usage"/>
         <class value="org.protege.editor.owl.ui.view.datatype.OWLDataTypeUsageViewComponent"/>
         <headerColor value="@org.protege.datatypecolor"/>
         <category value="@org.protege.datatypecategory"/>
@@ -904,9 +904,9 @@
 
     <extension id="openfromURI"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Open from URL..."/>
+        <name value="@i18n.owl.file.openFromUrl"/>
         <class value="org.protege.editor.owl.ui.action.OpenFromURLAction"/>
-        <toolTip value="Open an ontology from a URL"/>
+        <toolTip value="@i18n.owl.file.openFromUrl.tooltip"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotAA-G"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="shift O"/>
@@ -925,9 +925,9 @@
 
     <extension id="change.undo"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Undo"/>
+        <name value="@i18n.owl.edit.undo"/>
         <class value="org.protege.editor.owl.ui.action.UndoAction"/>
-        <toolTip value="Undo the last set of changes"/>
+        <toolTip value="@i18n.owl.edit.undo.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotAB-Z"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="Z"/>
@@ -936,9 +936,9 @@
 
     <extension id="change.redo"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Redo"/>
+        <name value="@i18n.owl.edit.redo"/>
         <class value="org.protege.editor.owl.ui.action.RedoAction"/>
-        <toolTip value="Redo the last set of changes"/>
+        <toolTip value="@i18n.owl.edit.redo.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotAB-ZB"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="shift Z"/>
@@ -947,9 +947,9 @@
 
     <extension id="gatherontologies"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Gather ontologies..."/>
+        <name value="@i18n.owl.file.gatherOntologies"/>
         <class value="org.protege.editor.owl.ui.action.GatherOntologiesAction"/>
-        <toolTip value="Collects together all loaded ontologies in a particular folder without modifying the originals"/>
+        <toolTip value="@i18n.owl.file.gatherOntologies.tooltip"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotAB-C"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="shift G"/>
@@ -958,17 +958,17 @@
 
     <extension id="exportinferredaxioms"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Export inferred axioms as ontology..."/>
+        <name value="@i18n.owl.file.exportInferredAxiomsAsOntology"/>
         <class value="org.protege.editor.owl.ui.action.export.inferred.ExportInferredOntologyAction"/>
-        <toolTip value="Exports inferred axioms as an ontology"/>
+        <toolTip value="@i18n.owl.file.exportInferredAxiomsAsOntology.tooltip"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotAB-D"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="reloadontology"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Reload"/>
-        <toolTip value="Reload the active ontology"/>
+        <name value="@i18n.owl.file.reload"/>
+        <toolTip value="@i18n.owl.file.reload.tooltip"/>
         <class value="org.protege.editor.owl.ui.action.ReloadActiveOntologyAction"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotAB-E"/>
         <editorKitId value="OWLEditorKit"/>
@@ -977,9 +977,9 @@
 
     <extension id="find"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Find..."/>
+        <name value="@i18n.owl.edit.find"/>
         <class value="org.protege.editor.owl.ui.action.FindAction"/>
-        <toolTip value="Search open ontologies"/>
+        <toolTip value="@i18n.owl.edit.find.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotD-A"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="F"/>
@@ -988,9 +988,9 @@
 
     <extension id="findInView"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Find in view..."/>
+        <name value="@i18n.owl.edit.findInView"/>
         <class value="org.protege.editor.owl.ui.action.FindInViewAction"/>
-        <toolTip value="Find an entity in the focused view"/>
+        <toolTip value="@i18n.owl.edit.findInView.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotD-B"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="shift F"/>
@@ -1000,9 +1000,9 @@
 
     <extension id="cut"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Cut"/>
+        <name value="@i18n.owl.edit.cut"/>
         <class value="org.protege.editor.owl.ui.action.CutAction"/>
-        <toolTip value="Cut"/>
+        <toolTip value="@i18n.owl.edit.cut.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotC-B"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="X"/>
@@ -1011,9 +1011,9 @@
 
     <extension id="copy"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy"/>
+        <name value="@i18n.owl.edit.copy"/>
         <class value="org.protege.editor.owl.ui.action.CopyAction"/>
-        <toolTip value="Copy"/>
+        <toolTip value="@i18n.owl.edit.copy.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotC-C"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="C"/>
@@ -1022,9 +1022,9 @@
 
     <extension id="copySubHierarchy"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy sub-hierarchy as tab indented text"/>
+        <name value="@i18n.owl.edit.copySubHierarchyAsTabIndentedText"/>
         <class value="org.protege.editor.owl.ui.action.CopySubHierarchyToClipboardAction"/>
-        <toolTip value="Copy the sub-hierarchy of the selection to the clipboard as tab indented text"/>
+        <toolTip value="@i18n.owl.edit.copySubHierarchyAsTabIndentedText.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotC-CA"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="alt C"/>
@@ -1032,9 +1032,9 @@
 
     <extension id="paste"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Paste"/>
+        <name value="@i18n.owl.edit.paste"/>
         <class value="org.protege.editor.owl.ui.action.PasteAction"/>
-        <toolTip value="Paste"/>
+        <toolTip value="@i18n.owl.edit.paste.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotC-D"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="V"/>
@@ -1043,9 +1043,9 @@
 
     <extension id="edit.duplicate"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Duplicate selected class..."/>
+        <name value="@i18n.owl.edit.duplicateSelectedClass"/>
         <class value="org.protege.editor.owl.ui.action.DuplicateSelectedClassAction"/>
-        <toolTip value="Duplicates the current class. This copies the class, its superclasses and equivalent classes."/>
+        <toolTip value="@i18n.owl.edit.duplicateSelectedClass.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotC-F"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="shift C"/>
@@ -1056,9 +1056,9 @@
 
     <extension id="createnew"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Create new"/>
+        <name value="@i18n.owl.edit.createNew"/>
         <class value="org.protege.editor.owl.ui.action.CreateNewObjectAction"/>
-        <toolTip value="Create a new object in the selected view"/>
+        <toolTip value="@i18n.owl.edit.createNew.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotE-A"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="shift alt E"/>
@@ -1066,9 +1066,9 @@
 
     <extension id="createnewchild"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Create child"/>
+        <name value="@i18n.owl.edit.createChild"/>
         <class value="org.protege.editor.owl.ui.action.CreateNewChildAction"/>
-        <toolTip value="Create a child of the selected object in the selected view"/>
+        <toolTip value="@i18n.owl.edit.createChild.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotE-B"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="E"/>
@@ -1076,9 +1076,9 @@
 
     <extension id="createnewsibling"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Create sibling"/>
+        <name value="@i18n.owl.edit.createSibling"/>
         <class value="org.protege.editor.owl.ui.action.CreateNewSiblingAction"/>
-        <toolTip value="Create a sibling of the selected object in the selected view"/>
+        <toolTip value="@i18n.owl.edit.createSibling.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotE-C"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="shift E"/>
@@ -1086,9 +1086,9 @@
 
     <extension id="menu.ConvertToPrimitveClass"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Convert to primitive class"/>
+        <name value="@i18n.owl.edit.convertToPrimitiveClass"/>
         <class value="org.protege.editor.owl.ui.action.ConvertToPrimitiveClassAction"/>
-        <toolTip value="Converts the equivalent classes of the selected class to superclasses."/>
+        <toolTip value="@i18n.owl.edit.convertToPrimitiveClass.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotG-A"/>
         <accelerator value="P"/>
         <editorKitId value="OWLEditorKit"/>
@@ -1097,9 +1097,9 @@
 
     <extension id="menu.ConvertToDefinedClass"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Convert to defined class"/>
+        <name value="@i18n.owl.edit.convertToDefinedClass"/>
         <class value="org.protege.editor.owl.ui.action.ConvertToDefinedClassAction"/>
-        <toolTip value="Converts the superclasses of the selected class to an equivalent class."/>
+        <toolTip value="@i18n.owl.edit.convertToDefinedClass.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotG-B"/>
         <accelerator value="D"/>
         <editorKitId value="OWLEditorKit"/>
@@ -1108,9 +1108,9 @@
 
     <extension id="context.menu.MakePrimitiveSiblingsDisjoint"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Make primitive siblings disjoint"/>
+        <name value="@i18n.owl.edit.makePrimitiveSiblingsDisjoint"/>
         <class value="org.protege.editor.owl.ui.action.MakePrimitiveSiblingsDisjoint"/>
-        <toolTip value="Makes primitive sibling classes disjoint.  All disjoint axioms are added to the current ontology."/>
+        <toolTip value="@i18n.owl.edit.makePrimitiveSiblingsDisjoint.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotG-C"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="J"/>
@@ -1119,9 +1119,9 @@
 
     <extension id="context.menu.MakePrimitiveSiblingsDisjoint"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Make primitive siblings disjoint"/>
+        <name value="@i18n.owl.edit.makePrimitiveSiblingsDisjoint"/>
         <class value="org.protege.editor.owl.ui.action.MakePrimitiveSiblingsDisjoint"/>
-        <toolTip value="Makes primitive sibling classes disjoint.  All disjoint axioms are added to the current ontology."/>
+        <toolTip value="@i18n.owl.edit.makePrimitiveSiblingsDisjoint.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotG-C"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="J"/>
@@ -1129,27 +1129,27 @@
 
     <extension id="menu.MakeAllIndividualsDistinct"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Make all individuals different"/>
+        <name value="@i18n.owl.edit.makeAllIndividualsDifferent"/>
         <class value="org.protege.editor.owl.ui.action.MakeAllIndividualsDifferent"/>
-        <toolTip value="Removes all DifferentIndividuals axioms and adds one DifferentIndividuals axiom containing all individuals in the signature of the active ontologies."/>
+        <toolTip value="@i18n.owl.edit.makeAllIndividualsDifferent.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotG-D"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="menu.MakeInstancesOfClassDifferentIndividuals"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Make instances different"/>
+        <name value="@i18n.owl.edit.makeInstancesDifferent"/>
         <class value="org.protege.editor.owl.ui.action.MakeInstancesOfClassDifferentIndividualsAction"/>
-        <toolTip value="Makes the individuals that are instances the selected class different individuals.  This only changes the active ontology."/>
+        <toolTip value="@i18n.owl.edit.makeInstancesDifferent.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotG-E"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="menu.AddCoveringAxiom"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Add covering axiom"/>
+        <name value="@i18n.owl.edit.addCoveringAxiom"/>
         <class value="org.protege.editor.owl.ui.action.AddCoveringAxiomAction"/>
-        <toolTip value="Adds a covering axiom to the selected class.  If a class A has subclassses B, C and D then the covering axiom for A is the union class (B or C or D).  This forces all instances of A to be a member of one of its subclasses."/>
+        <toolTip value="@i18n.owl.edit.addCoveringAxiom.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotG-F"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1157,9 +1157,9 @@
 
     <extension id="menu.RemoveLocalDisjointAxioms"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Remove local disjoint classes axioms..."/>
+        <name value="@i18n.owl.edit.removeLocalDisjointClassesAxioms"/>
         <class value="org.protege.editor.owl.ui.action.RemoveLocalDisjointAxiomsAction"/>
-        <toolTip value="Removes all of the disjoint classes axioms that reference subclasses of the selected class."/>
+        <toolTip value="@i18n.owl.edit.removeLocalDisjointClassesAxioms.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotO-D"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1167,9 +1167,9 @@
 
     <extension id="menu.RemoveAllDisjointAxioms"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Remove all disjoint classes axioms..."/>
+        <name value="@i18n.owl.edit.removeAllDisjointClassesAxioms"/>
         <class value="org.protege.editor.owl.ui.action.RemoveAllDisjointAxiomsAction"/>
-        <toolTip value="Removes all of the disjoint classes axioms in the active ontologies"/>
+        <toolTip value="@i18n.owl.edit.removeAllDisjointClassesAxioms.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotO-E"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1177,9 +1177,9 @@
 
     <extension id="deprecateentity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Deprecate entity..."/>
+        <name value="@i18n.owl.edit.deprecateEntity"/>
         <class value="org.protege.editor.owl.ui.deprecation.DeprecateSelectedEntityAction"/>
-        <toolTip value="Deprecates the selected entity"/>
+        <toolTip value="@i18n.owl.edit.deprecateEntity.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotP-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1187,9 +1187,9 @@
 
     <extension id="mergeentity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Merge into entity..."/>
+        <name value="@i18n.owl.edit.mergeIntoEntity"/>
         <class value="org.protege.editor.owl.ui.merge.MergeEntitiesAction"/>
-        <toolTip value="Merges the selected entity into another entity"/>
+        <toolTip value="@i18n.owl.edit.mergeIntoEntity.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotP-B"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1198,45 +1198,45 @@
 
     <extension id="entitybanner.menu.CopyEntityIri"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy IRI"/>
+        <name value="@i18n.owl.entity.copyIri"/>
         <class value="org.protege.editor.owl.model.entity.CopyEntityIriAction"/>
-        <toolTip value="Copies the IRI of the selected entity to the clipboard"/>
+        <toolTip value="@i18n.owl.entity.copyIri.tooltip"/>
         <path value="[EntityBanner]/SlotA-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="entitybanner.menu.CopyOboId"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy OBO Id"/>
+        <name value="@i18n.owl.entity.copyOboId"/>
         <class value="org.protege.editor.owl.model.entity.CopyOboIdAction"/>
-        <toolTip value="Copies the OBO Id (if present) of the selected entity to the clipboard"/>
+        <toolTip value="@i18n.owl.entity.copyOboId.tooltip"/>
         <path value="[EntityBanner]/SlotA-B"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="entitybanner.menu.CopyEntityDisplayName"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy display name"/>
+        <name value="@i18n.owl.entity.copyDisplayName"/>
         <class value="org.protege.editor.owl.model.entity.CopyEntityDisplayName"/>
-        <toolTip value="Copies the display name of the selected entity to the clipboard"/>
+        <toolTip value="@i18n.owl.entity.copyDisplayName.tooltip"/>
         <path value="[EntityBanner]/SlotA-C"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="entitybanner.menu.CopyEntityAsMarkdown"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy as Markdown"/>
+        <name value="@i18n.owl.entity.copyAsMarkdown"/>
         <class value="org.protege.editor.owl.model.entity.CopyEntityAsMarkdownAction"/>
-        <toolTip value="Copies the display name and IRI of the selected entity to the clipboard as Markdown"/>
+        <toolTip value="@i18n.owl.entity.copyAsMarkdown.tooltip"/>
         <path value="[EntityBanner]/SlotA-D"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="entitybanner.menu.ShowEntityIriInWebBrowser"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Show IRI in Web browser"/>
+        <name value="@i18n.owl.entity.showIriInWebBrowser"/>
         <class value="org.protege.editor.owl.model.entity.ShowEntityIriInWebBroswerAction"/>
-        <toolTip value="Shows the IRI of the selected entity in the default Web browser"/>
+        <toolTip value="@i18n.owl.entity.showIriInWebBrowser.tooltip"/>
         <path value="[EntityBanner]/SlotC-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1244,9 +1244,9 @@
 
     <extension id="entitybanner.menu.ChangeEntityIri"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Change IRI (Rename)..."/>
+        <name value="@i18n.owl.entity.changeIriRename"/>
         <class value="org.protege.editor.owl.ui.action.RenameEntityAction"/>
-        <toolTip value="Changes the IRI of the selected entity"/>
+        <toolTip value="@i18n.owl.entity.changeIriRename.tooltip"/>
         <path value="[EntityBanner]/SlotD-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1258,18 +1258,18 @@
 
     <extension id="file.editontologylibrary"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Edit ontology catalog file..."/>
+        <name value="@i18n.owl.file.editOntologyCatalog"/>
         <class value="org.protege.editor.owl.ui.library.EditOntologyLibraryAction"/>
-        <toolTip value="View, add and edit an ontology catalog file"/>
+        <toolTip value="@i18n.owl.file.editOntologyCatalog.tooltip"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotD-B"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="file.ontologylocations"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Loaded ontology sources..."/>
+        <name value="@i18n.owl.file.loadedOntologySources"/>
         <class value="org.protege.editor.owl.ui.ontology.location.ShowOntologyLocationsAction"/>
-        <toolTip value="Shows the physical URLs from where currently loaded ontologies were obtained from"/>
+        <toolTip value="@i18n.owl.file.loadedOntologySources.tooltip"/>
         <path value="org.protege.editor.core.application.menu.FileMenu/SlotD-C"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1278,8 +1278,8 @@
 
     <extension id="menu.Reasoner"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Reasoner"/>
-        <toolTip value="Invoke and configure reasoners"/>
+        <name value="@i18n.menu.reasoner"/>
+        <toolTip value="@i18n.owl.reasoner.menu.tooltip"/>
         <path value="/SlotD-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1287,19 +1287,19 @@
     <!-- Reasoner Preferences Panel -->
     <extension id="ui.preferences.reasoner"
                point="org.protege.editor.core.application.preferencespanel">
-        <label value="Reasoner"/>
+        <label value="@i18n.owl.label.reasoner"/>
         <class value="org.protege.editor.owl.ui.inference.TabbedReasonerPreferencesPanel"/>
     </extension>
     
     <extension id="ui.preferences.reasoner.display"
                point="org.protege.editor.owl.inference_preferences">
-        <label value="Displayed inferences"/>
+        <label value="@i18n.owl.label.displayedInferences"/>
         <class value="org.protege.editor.owl.ui.inference.DisplayedInferencesPreferencePanel"/>
     </extension>
 
     <extension id="ui.preferences.reasoner.classification"
                point="org.protege.editor.owl.inference_preferences">
-        <label value="Initialization"/>
+        <label value="@i18n.owl.label.initialization"/>
         <class value="org.protege.editor.owl.ui.inference.PrecomputePreferencesPanel"/>
     </extension>
 
@@ -1307,8 +1307,8 @@
 
     <extension id="menu.Refactor"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Refactor"/>
-        <toolTip value="Refactor the ontology, or the selected class, property or individual"/>
+        <name value="@i18n.menu.refactor"/>
+        <toolTip value="@i18n.owl.refactor.menu.tooltip"/>
         <path value="/SlotH-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1316,9 +1316,9 @@
 
     <extension id="deleteentity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Delete..."/>
+        <name value="@i18n.owl.action.delete"/>
         <class value="org.protege.editor.owl.ui.action.DeleteAction"/>
-        <toolTip value="Deletes the selection in the focused view"/>
+        <toolTip value="@i18n.owl.action.delete.tooltip"/>
         <path value="org.protege.editor.core.application.menu.EditMenu/SlotC-E"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="DELETE"/>
@@ -1326,9 +1326,9 @@
 
     <extension id="menu.RenameEntity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Rename entity..."/>
+        <name value="@i18n.owl.action.renameEntity"/>
         <class value="org.protege.editor.owl.ui.action.RenameEntityAction"/>
-        <toolTip value="Change the IRI of the selected entity"/>
+        <toolTip value="@i18n.owl.action.renameEntity.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotA-B"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="U"/>
@@ -1336,18 +1336,18 @@
 
     <extension id="menu.RenameEntitiesBySearchAndReplace"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Rename multiple entities..."/>
+        <name value="@i18n.owl.action.renameMultipleEntities"/>
         <class value="org.protege.editor.owl.ui.action.RenameEntitiesBySearchAndReplaceAction"/>
-        <toolTip value="Change the IRI of entities using search and replace"/>
+        <toolTip value="@i18n.owl.action.renameMultipleEntities.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotA-C"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="menu.ChangeOntologyURI"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Change ontology IRI..."/>
+        <name value="@i18n.owl.action.changeOntologyIri"/>
         <class value="org.protege.editor.owl.ui.action.ChangeOntologyIRI"/>
-        <toolTip value="Change the IRI of the active ontology"/>
+        <toolTip value="@i18n.owl.action.changeOntologyIri.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotA-X"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1355,9 +1355,9 @@
 
     <extension id="menu.ConvertEntityURIsToLabels"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Convert entity IRIs to labels..."/>
+        <name value="@i18n.owl.action.convertIrisToLabels"/>
         <class value="org.protege.editor.owl.ui.action.ConvertEntityURIsToLabels"/>
-        <toolTip value="Change the IRI of all entities to an ID and move the name to a label annotation on the entity as per settings in the New Entity preferences"/>
+        <toolTip value="@i18n.owl.action.convertIrisToLabels.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotA-Y"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1365,58 +1365,54 @@
 
     <extension id="menu.ChangePropertyAssertionPunsToAnnotations"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Convert property assertion on class/individual puns to annotations"/>
+        <name value="@i18n.owl.refactor.convertAssertionsOnPunsToAnnotations"/>
         <class value="org.protege.editor.owl.ui.action.ConvertAssertionsOnPunsToAnnotations"/>
-        <toolTip value="Converts any property assertions with a subject which is a pun to an annotation on the class which is punned"/>
+        <toolTip value="@i18n.owl.refactor.convertAssertionsOnPunsToAnnotations.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotB-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="menu.CoerceDataPropertyValuesIntoPropertyRange"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Coerce data property values into property range"/>
+        <name value="@i18n.owl.refactor.coerceDataPropertyValuesIntoPropertyRange"/>
         <class value="org.protege.editor.owl.ui.action.CoerceDataPropertyValuesIntoPropertyRangeAction"/>
-        <toolTip value="Coerces any data property value into (to be typed by) the range of the data property"/>
+        <toolTip value="@i18n.owl.refactor.coerceDataPropertyValuesIntoPropertyRange.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotB-B"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="menu.SplitSubClassAxioms"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Split subclass axioms"/>
+        <name value="@i18n.owl.refactor.splitSubclassAxioms"/>
         <class value="org.protege.editor.owl.ui.action.SplitSubClassAxiomsAction"/>
-        <toolTip value="Splits subclass axioms in the active ontologies into more fine grained axioms.  For example, A subClassOf (B and C) would be split into A subClassOf B, and A subClassOf C"/>
+        <toolTip value="@i18n.owl.refactor.splitSubclassAxioms.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotC-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="menu.AmalgamateSubClassAxioms"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Amalgamate subclass axioms"/>
+        <name value="@i18n.owl.refactor.amalgamateSubclassAxioms"/>
         <class value="org.protege.editor.owl.ui.action.AmalgamateSuperClassesAction"/>
-        <toolTip value="Merges subclass axioms that have a common left hand side.  For example,
-        A subClassOf B, A subClassOf C would be merged into a single subclass axiom, A subClassOf (B and C)."/>
+        <toolTip value="@i18n.owl.refactor.amalgamateSubclassAxioms.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotC-B"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="menu.SplitDisjointClasses"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Split disjoint classes into pairwise disjoints"/>
+        <name value="@i18n.owl.refactor.splitDisjointClassesIntoPairwiseDisjoints"/>
         <class value="org.protege.editor.owl.ui.action.SplitDisjointClassesAction"/>
-        <toolTip value="Splits disjoint classes axioms in the active ontologies into pairwise disjoints to aid backwards
-        compatibility.  For example, disjointClasses(A, B, C) would be split into A disjointWith B,
-        A disjointWith C, B disjointWith C"/>
+        <toolTip value="@i18n.owl.refactor.splitDisjointClassesIntoPairwiseDisjoints.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotC-G"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="menu.AmalgamateDisjointClassesAction"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Amalgamate disjoint classes into larger disjoint sets"/>
+        <name value="@i18n.owl.refactor.amalgamateDisjointClassesIntoLargerDisjointSets"/>
         <class value="org.protege.editor.owl.ui.action.AmalgamateDisjointClassesAction"/>
-        <toolTip value="Merges disjoint classes axioms in the active ontologies into more efficient sets.
-          For example, A disjointWith B, A disjointWith C, B disjointWith C would be merged into disjointClasses(A, B, C)"/>
+        <toolTip value="@i18n.owl.refactor.amalgamateDisjointClassesIntoLargerDisjointSets.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotC-H"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1424,28 +1420,27 @@
 
     <extension id="menu.MergeOntologies"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Merge ontologies..."/>
+        <name value="@i18n.owl.refactor.mergeOntologies"/>
         <class value="org.protege.editor.owl.ui.action.MergeOntologiesAction"/>
-        <toolTip value="Merge one or more ontologies into an existing or new ontology."/>
+        <toolTip value="@i18n.owl.refactor.mergeOntologies.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotF-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="menu.ConvertMinOneToSomeValuesFromAction"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Convert qualified min cardinality 1 to someValuesFrom"/>
+        <name value="@i18n.owl.refactor.convertQualifiedMinCardinalityOneToSomeValuesFrom"/>
         <class value="org.protege.editor.owl.ui.action.ConvertMinOneToSomeValuesFromAction"/>
-        <toolTip value="Finds all uses of qualified min cardinality 1 restrictions
-         and replaces them with someValuesFrom restrictions."/>
+        <toolTip value="@i18n.owl.refactor.convertQualifiedMinCardinalityOneToSomeValuesFrom.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotD-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension> 
 
     <extension id="menu.MoveAxiomsToOntologyAction"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy/move/delete axioms ..."/>
+        <name value="@i18n.owl.refactor.copyMoveDeleteAxioms"/>
         <class value="org.protege.editor.owl.ui.action.MoveAxiomsToOntologyAction"/>
-        <toolTip value="Extract/select axioms from an ontology and optionally move them to another ontology"/>
+        <toolTip value="@i18n.owl.refactor.copyMoveDeleteAxioms.tooltip"/>
         <path value="org.protege.editor.owl.menu.Refactor/SlotE-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension> 
@@ -1454,16 +1449,16 @@
 
     <extension id="menu.tools"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Tools"/>
+        <name value="@i18n.menu.tools"/>
         <path value="/SlotG-A"/>
         <editorKitId value="any"/>
     </extension>
 
     <extension id="file.usage"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Usage..."/>
+        <name value="@i18n.owl.action.usage"/>
         <class value="org.protege.editor.owl.ui.action.ShowUsageAction"/>
-        <toolTip value="Shows the usage of the selected entity"/>
+        <toolTip value="@i18n.owl.action.usage.tooltip"/>
         <path value="org.protege.editor.owl.menu.tools/SlotR-B"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1494,27 +1489,27 @@
     <!-- Hierarchy creation -->
     <extension id="menu.CreateClassHierarchy"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Create class hierarchy..."/>
+        <name value="@i18n.owl.action.createClassHierarchy"/>
         <class value="org.protege.editor.owl.ui.action.CreateSubClassHierarchyAction"/>
-        <toolTip value="Creates a class hierarchy from tab indented text, and inserts the new hierarchy into the existing class hierarchy below the current selection."/>
+        <toolTip value="@i18n.owl.action.createClassHierarchy.tooltip"/>
         <path value="org.protege.editor.owl.menu.tools/SlotF-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="menu.CreateObjectPropertyHierarchy"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Create object property hierarchy..."/>
+        <name value="@i18n.owl.action.createObjectPropertyHierarchy"/>
         <class value="org.protege.editor.owl.ui.action.CreateSubObjectPropertyHierarchyAction"/>
-        <toolTip value="Creates an object property hierarchy from tab indented text, and inserts the new hierarchy into the existing object property hierarchy below the current selection."/>
+        <toolTip value="@i18n.owl.action.createObjectPropertyHierarchy.tooltip"/>
         <path value="org.protege.editor.owl.menu.tools/SlotF-B"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="menu.CreateDataPropertyHierarchy"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Create data property hierarchy..."/>
+        <name value="@i18n.owl.action.createDataPropertyHierarchy"/>
         <class value="org.protege.editor.owl.ui.action.CreateSubDataPropertyHierarchyAction"/>
-        <toolTip value="Creates a data property hierarchy from tab indented text, and inserts the new hierarchy into the existing data property hierarchy below the current selection."/>
+        <toolTip value="@i18n.owl.action.createDataPropertyHierarchy.tooltip"/>
         <path value="org.protege.editor.owl.menu.tools/SlotF-C"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1523,16 +1518,16 @@
     <!-- Help menu -->
 
     <extension id="menu.PluginsMenuItem" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Prot\u00E9g\u00E9 plugins"/>
-        <toolTip value="Find plugins in the Prot\u00E9g\u00E9 Wiki plugin library"/>
+        <name value="@i18n.owl.help.plugins"/>
+        <toolTip value="@i18n.owl.help.plugins.tooltip"/>
         <url value="http://protegewiki.stanford.edu/wiki/Protege_Plugin_Library"/>
         <path value="org.protege.editor.core.application.menu.HelpMenu/SlotF-B"/>
         <editorKitId value="any"/>
     </extension>
 
     <extension id="menu.ClassExpressionDocumentationMenuItem" point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Class expression syntax"/>
-        <toolTip value="Documentation for the Class Expression Syntax used in Prot\u00E9g\u00E9"/>
+        <name value="@i18n.owl.help.classExpressionSyntax"/>
+        <toolTip value="@i18n.owl.help.classExpressionSyntax.tooltip"/>
         <url value="http://protegeproject.github.io/protege/class-expression-syntax"/>
         <path value="org.protege.editor.core.application.menu.HelpMenu/SlotF-B"/>
         <editorKitId value="any"/>
@@ -1541,7 +1536,7 @@
 
     <extension id="SPARQLQueryTab">
                point="org.protege.editor.core.application.WorkspaceTab" 
-            <label value="SPARQL"/>
+            <label value="@i18n.owl.tab.sparql"/>
             <class value="org.protege.editor.owl.ui.OWLWorkspaceViewsTab"/>
             <editorKitId value="OWLEditorKit"/>
             <index value="Z"/>
@@ -1555,7 +1550,7 @@
 
     <extension id="NoOpReasoner"
                point="org.protege.editor.owl.inference_reasonerfactory">
-        <name value="None"/>
+        <name value="@i18n.owl.reasoner.none"/>
         <class value="org.protege.editor.owl.model.inference.NoOpReasonerInfo"/>
         <defaultReasoner value="true"/>
     </extension>
@@ -1576,7 +1571,7 @@
 
     <extension id="ui.ontology.OntologyPreferencesPanel"
                point="org.protege.editor.core.application.preferencespanel">
-        <label value="New ontologies"/>
+        <label value="@i18n.owl.label.newOntologies"/>
         <class value="org.protege.editor.owl.ui.ontology.OntologyPreferencesPanel"/>
     </extension>
 
@@ -1584,25 +1579,25 @@
 
     <extension id="ui.general.prefs"
                point="org.protege.editor.core.application.preferencespanel">
-        <label value="General"/>
+        <label value="@i18n.owl.label.general"/>
         <class value="org.protege.editor.owl.ui.preferences.GeneralPreferencesPanel"/>
     </extension>
 
     <extension id="ui.user.prefs"
                point="org.protege.editor.core.application.preferencespanel">
-        <label value="User details"/>
+        <label value="@i18n.owl.label.userDetails"/>
         <class value="org.protege.editor.owl.ui.preferences.UserPreferencesPanel"/>
     </extension>
 
     <extension id="ui.entitymetadata.prefs"
                point="org.protege.editor.core.application.preferencespanel">
-        <label value="New entities metadata"/>
+        <label value="@i18n.owl.label.newEntitiesMetadata"/>
         <class value="org.protege.editor.owl.ui.annotation.EntityCreationMetadataPreferencesPanel"/>
     </extension>
 
     <extension id="ui.preferences.explanation.general"
                point="org.protege.editor.core.application.explanationpreferencespanel">
-        <label value="General"/>
+        <label value="@i18n.owl.label.general"/>
         <class value="org.protege.editor.owl.ui.explanation.ExplanationPreferencesGeneralPanel"/>
     </extension>
 
@@ -1610,29 +1605,29 @@
 
     <extension id="MoveAxiomsByReference"
                point="org.protege.editor.owl.moveaxiomskit">
-        <name value="Axioms by reference (select entities from the ontology)" />
+        <name value="@i18n.owl.moveAxioms.byReference" />
         <class value="org.protege.editor.owl.ui.ontology.wizard.move.byreference.MoveAxiomsByReferenceKit" />
     </extension>
 
     <extension id="MoveAxiomsByType"
                point="org.protege.editor.owl.moveaxiomskit">
-        <name value="Axioms by type (eg subclass axioms, annotation axioms)" />
+        <name value="@i18n.owl.moveAxioms.byType" />
         <class value="org.protege.editor.owl.ui.ontology.wizard.move.bytype.MoveAxiomsByTypeKit" />
     </extension>
 
     <extension id="MoveAxiomsByProfile"
                point="org.protege.editor.owl.moveaxiomskit">
-        <name value="Axioms by profile (select axioms in a sublanguage of OWL)" />
+        <name value="@i18n.owl.moveAxioms.byProfile" />
         <class value="org.protege.editor.owl.ui.ontology.wizard.move.byprofile.MoveAxiomsByProfileKit" />
     </extension>
 
     <extension id="MoveAxiomsByDefinition" point="org.protege.editor.owl.moveaxiomskit">
-        <name value="Axioms by definition (select axioms that define entities)"/>
+        <name value="@i18n.owl.moveAxioms.byDefinition"/>
         <class value="org.protege.editor.owl.ui.ontology.wizard.move.bydefinition.MoveAxiomsByDefinitionKit"/>
     </extension>
 
     <extension id="DefaultSearchManager" point="org.protege.editor.owl.searchmanager">
-        <name value="Default search"/>
+        <name value="@i18n.owl.search.default"/>
         <class value="org.protege.editor.owl.model.search.DefaultSearchManager"/>
     </extension>
 
@@ -1641,18 +1636,18 @@
 
     <extension id="Add SubClass"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Add subclass..."/>
+        <name value="@i18n.owl.context.addSubclass"/>
         <class value="org.protege.editor.owl.ui.action.CreateNewChildAction"/>
-        <toolTip value="Add a subclass of the selected class"/>
+        <toolTip value="@i18n.owl.context.addSubclass.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotAA-A"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="E"/>
     </extension>
     <extension id="Add Sibling Class"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Add sibling class..."/>
+        <name value="@i18n.owl.context.addSiblingClass"/>
         <class value="org.protege.editor.owl.ui.action.CreateNewSiblingAction"/>
-        <toolTip value="Add a sibling of the selected class"/>
+        <toolTip value="@i18n.owl.context.addSiblingClass.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotAA-B"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="shift E"/>
@@ -1661,9 +1656,9 @@
 
     <extension id="context.edit.duplicate"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Duplicate class..."/>
+        <name value="@i18n.owl.edit.duplicateSelectedClass"/>
         <class value="org.protege.editor.owl.ui.action.DuplicateSelectedClassAction"/>
-        <toolTip value="Duplicates the current class. This copies the class, its superclasses and equivalent classes."/>
+        <toolTip value="@i18n.owl.edit.duplicateSelectedClass.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotAA-D"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="shift C"/>
@@ -1671,9 +1666,9 @@
 
     <extension id="Change Class IRI"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Change IRI (Rename)..."/>
+        <name value="@i18n.owl.entity.changeIriRename"/>
         <class value="org.protege.editor.owl.ui.action.RenameEntityAction"/>
-        <toolTip value="Change the IRI of the selected class"/>
+        <toolTip value="@i18n.owl.entity.changeIriRename.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotAB-B"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="U"/>
@@ -1681,9 +1676,9 @@
 
     <extension id="context.menu.ConvertToPrimitveClass"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Convert to primitive class"/>
+        <name value="@i18n.owl.edit.convertToPrimitiveClass"/>
         <class value="org.protege.editor.owl.ui.action.ConvertToPrimitiveClassAction"/>
-        <toolTip value="Converts the equivalent classes of the selected class to superclasses."/>
+        <toolTip value="@i18n.owl.edit.convertToPrimitiveClass.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotM-B"/>
         <accelerator value="P"/>
         <editorKitId value="OWLEditorKit"/>
@@ -1692,9 +1687,9 @@
 
     <extension id="context.menu.ConvertToDefinedClass"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Convert to defined class"/>
+        <name value="@i18n.owl.edit.convertToDefinedClass"/>
         <class value="org.protege.editor.owl.ui.action.ConvertToDefinedClassAction"/>
-        <toolTip value="Converts the superclasses of the selected class to an equivalent class."/>
+        <toolTip value="@i18n.owl.edit.convertToDefinedClass.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotM-C"/>
         <accelerator value="D"/>
         <editorKitId value="OWLEditorKit"/>
@@ -1702,9 +1697,9 @@
 
     <extension id="context.menu.RemoveLocalDisjointAxioms"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Remove disjoint classes axioms for subclasses..."/>
+        <name value="@i18n.owl.edit.removeLocalDisjointClassesAxioms"/>
         <class value="org.protege.editor.owl.ui.action.RemoveLocalDisjointAxiomsAction"/>
-        <toolTip value="Removes all of the disjoint classes axioms that mention subclasses of the selected class."/>
+        <toolTip value="@i18n.owl.edit.removeLocalDisjointClassesAxioms.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotM-G"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
@@ -1712,9 +1707,9 @@
 
     <extension id="context.copy"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy"/>
+        <name value="@i18n.owl.edit.copy"/>
         <class value="org.protege.editor.owl.ui.action.CopyAction"/>
-        <toolTip value="Copy"/>
+        <toolTip value="@i18n.owl.edit.copy.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotC-C"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="C"/>
@@ -1723,45 +1718,45 @@
 
     <extension id="context.CopyEntityIri"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy IRI"/>
+        <name value="@i18n.owl.entity.copyIri"/>
         <class value="org.protege.editor.owl.model.entity.CopyEntityIriAction"/>
-        <toolTip value="Copies the IRI of the selected entity to the clipboard"/>
+        <toolTip value="@i18n.owl.entity.copyIri.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotC-CA"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.CopyOboId"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy OBO Id"/>
+        <name value="@i18n.owl.entity.copyOboId"/>
         <class value="org.protege.editor.owl.model.entity.CopyOboIdAction"/>
-        <toolTip value="Copies the OBO Id (if present) of the selected entity to the clipboard"/>
+        <toolTip value="@i18n.owl.entity.copyOboId.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotC-CB"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.CopyEntityDisplayName"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy display name"/>
+        <name value="@i18n.owl.entity.copyDisplayName"/>
         <class value="org.protege.editor.owl.model.entity.CopyEntityDisplayName"/>
-        <toolTip value="Copies the display name of the selected entity to the clipboard"/>
+        <toolTip value="@i18n.owl.entity.copyDisplayName.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotC-CC"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.menu.CopyEntityAsMarkdown"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy as Markdown"/>
+        <name value="@i18n.owl.entity.copyAsMarkdown"/>
         <class value="org.protege.editor.owl.model.entity.CopyEntityAsMarkdownAction"/>
-        <toolTip value="Copies the display name and IRI of the selected entity to the clipboard as Markdown"/>
+        <toolTip value="@i18n.owl.entity.copyAsMarkdown.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotC-CD"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.copySubHierarchy"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Copy sub-hierarchy as tab indented text"/>
+        <name value="@i18n.owl.edit.copySubHierarchyAsTabIndentedText"/>
         <class value="org.protege.editor.owl.ui.action.CopySubHierarchyToClipboardAction"/>
-        <toolTip value="Copy the sub-hierarchy of the selection to the clipboard as tab indented text"/>
+        <toolTip value="@i18n.owl.edit.copySubHierarchyAsTabIndentedText.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotC-CE"/>
         <editorKitId value="OWLEditorKit"/>
         <accelerator value="alt C"/>
@@ -1771,126 +1766,126 @@
 
     <extension id="context.ShowEntityIriInWebBrowser"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Show IRI in Web browser"/>
+        <name value="@i18n.owl.entity.showIriInWebBrowser"/>
         <class value="org.protege.editor.owl.model.entity.ShowEntityIriInWebBroswerAction"/>
-        <toolTip value="Shows the IRI of the selected entity in the default Web browser"/>
+        <toolTip value="@i18n.owl.entity.showIriInWebBrowser.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotD-E"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.class.CreateSubHierarchy"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Add subclasses..."/>
+        <name value="@i18n.owl.context.addSubclasses"/>
         <class value="org.protege.editor.owl.ui.action.CreateSubClassHierarchyAction"/>
-        <toolTip value="Adds a sub-hierarchy below the selected class created from tab indented text"/>
+        <toolTip value="@i18n.owl.context.addSubclasses.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotAA-C"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.objectproperty.CreateSubHierarchy"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Add sub-properties..."/>
+        <name value="@i18n.owl.context.addSubProperties"/>
         <class value="org.protege.editor.owl.ui.action.CreateSubObjectPropertyHierarchyAction"/>
-        <toolTip value="Adds a sub-hierarchy below the selected object property created from tab indented text"/>
+        <toolTip value="@i18n.owl.context.addSubObjectProperties.tooltip"/>
         <path value="[AssertedObjectPropertyHierarchy]/SlotD-B"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.dataproperty.CreateSubHierarchy"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Add sub-properties..."/>
+        <name value="@i18n.owl.context.addSubProperties"/>
         <class value="org.protege.editor.owl.ui.action.CreateSubDataPropertyHierarchyAction"/>
-        <toolTip value="Adds a sub-hierarchy below the selected data property created from tab indented text"/>
+        <toolTip value="@i18n.owl.context.addSubDataProperties.tooltip"/>
         <path value="[AssertedDataPropertyHierarchy]/SlotD-C"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.class.DeprecateEntity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Deprecate..."/>
+        <name value="@i18n.owl.edit.deprecateEntity"/>
         <class value="org.protege.editor.owl.ui.deprecation.DeprecateSelectedEntityAction"/>
-        <toolTip value="Deprecates the selected class"/>
+        <toolTip value="@i18n.owl.edit.deprecateEntity.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotM-H"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.objectproperty.DeprecateEntity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Deprecate..."/>
+        <name value="@i18n.owl.edit.deprecateEntity"/>
         <class value="org.protege.editor.owl.ui.deprecation.DeprecateSelectedEntityAction"/>
-        <toolTip value="Deprecates the selected object property"/>
+        <toolTip value="@i18n.owl.edit.deprecateEntity.tooltip"/>
         <path value="[AssertedObjectPropertyHierarchy]/SlotE-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.annotationproperty.DeprecateEntity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Deprecate..."/>
+        <name value="@i18n.owl.edit.deprecateEntity"/>
         <class value="org.protege.editor.owl.ui.deprecation.DeprecateSelectedEntityAction"/>
-        <toolTip value="Deprecates the selected class"/>
+        <toolTip value="@i18n.owl.edit.deprecateEntity.tooltip"/>
         <path value="[AnnotationPropertyHierarchy]/SlotA-C"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.dataproperty.DeprecateEntity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Deprecate..."/>
+        <name value="@i18n.owl.edit.deprecateEntity"/>
         <class value="org.protege.editor.owl.ui.deprecation.DeprecateSelectedEntityAction"/>
-        <toolTip value="Deprecate the selected data property"/>
+        <toolTip value="@i18n.owl.edit.deprecateEntity.tooltip"/>
         <path value="[AssertedDataPropertyHierarchy]/SlotE-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.individual.DeprecateEntity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Deprecate..."/>
+        <name value="@i18n.owl.edit.deprecateEntity"/>
         <class value="org.protege.editor.owl.ui.deprecation.DeprecateSelectedEntityAction"/>
-        <toolTip value="Deprecates the selected individual"/>
+        <toolTip value="@i18n.owl.edit.deprecateEntity.tooltip"/>
         <path value="[IndividualHierarchy]/SlotA-A"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.class.MergeEntity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Merge into..."/>
+        <name value="@i18n.owl.edit.mergeIntoEntity"/>
         <class value="org.protege.editor.owl.ui.merge.MergeEntitiesAction"/>
-        <toolTip value="Merges the selected class into another class"/>
+        <toolTip value="@i18n.owl.edit.mergeIntoEntity.tooltip"/>
         <path value="[AssertedClassHierarchy]/SlotM-I"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.objectproperty.MergeEntity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Merge into..."/>
+        <name value="@i18n.owl.edit.mergeIntoEntity"/>
         <class value="org.protege.editor.owl.ui.merge.MergeEntitiesAction"/>
-        <toolTip value="Merges the selected property into another property"/>
+        <toolTip value="@i18n.owl.edit.mergeIntoEntity.tooltip"/>
         <path value="[AssertedObjectPropertyHierarchy]/SlotE-B"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.annotationproperty.MergeEntity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Merge into..."/>
+        <name value="@i18n.owl.edit.mergeIntoEntity"/>
         <class value="org.protege.editor.owl.ui.merge.MergeEntitiesAction"/>
-        <toolTip value="Merges the selected property into another property"/>
+        <toolTip value="@i18n.owl.edit.mergeIntoEntity.tooltip"/>
         <path value="[AnnotationPropertyHierarchy]/SlotA-D"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.dataproperty.MergeEntity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Merge into..."/>
+        <name value="@i18n.owl.edit.mergeIntoEntity"/>
         <class value="org.protege.editor.owl.ui.merge.MergeEntitiesAction"/>
-        <toolTip value="Merges the selected property into another property"/>
+        <toolTip value="@i18n.owl.edit.mergeIntoEntity.tooltip"/>
         <path value="[AssertedDataPropertyHierarchy]/SlotE-B"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>
 
     <extension id="context.individual.MergeEntity"
                point="org.protege.editor.core.application.EditorKitMenuAction">
-        <name value="Merge into..."/>
+        <name value="@i18n.owl.edit.mergeIntoEntity"/>
         <class value="org.protege.editor.owl.ui.merge.MergeEntitiesAction"/>
-        <toolTip value="Merges the selected indivdual into another individual"/>
+        <toolTip value="@i18n.owl.edit.mergeIntoEntity.tooltip"/>
         <path value="[IndividualHierarchy]/SlotA-B"/>
         <editorKitId value="OWLEditorKit"/>
     </extension>

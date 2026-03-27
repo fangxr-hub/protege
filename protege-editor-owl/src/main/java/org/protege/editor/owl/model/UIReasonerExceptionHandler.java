@@ -1,5 +1,6 @@
 package org.protege.editor.owl.model;
 
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.owl.model.inference.OWLReasonerExceptionHandler;
 
 import javax.swing.*;
@@ -33,6 +34,9 @@ public class UIReasonerExceptionHandler implements OWLReasonerExceptionHandler {
             cause = cause.getCause();
         }
         String msg = cause.getClass().getSimpleName() + ": " + cause.getMessage();
-        JOptionPane.showMessageDialog(workspace, msg, "An error occurred during reasoning", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(workspace,
+                                      msg,
+                                      ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.reasonerError.title"),
+                                      JOptionPane.ERROR_MESSAGE);
     }
 }

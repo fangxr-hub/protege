@@ -1,6 +1,7 @@
 package org.protege.editor.owl.ui.ontology.wizard.move;
 
 import org.protege.editor.core.ProtegeManager;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ui.wizard.Wizard;
 import org.protege.editor.owl.OWLEditorKit;
 import org.protege.editor.owl.OWLEditorKitFactory;
@@ -46,7 +47,7 @@ public class MoveAxiomsWizard extends Wizard implements MoveAxiomsModel {
     private final Logger logger = LoggerFactory.getLogger(MoveAxiomsWizard.class);
 
     public MoveAxiomsWizard(OWLEditorKit eKit) {
-        setTitle("Copy/move/delete axioms");
+        setTitle(i18n("i18n.owl.dialog.moveAxioms.title", "Copy/move/delete axioms"));
         this.editorKit = eKit;
 
         sourceOntologies = new HashSet<>();
@@ -241,7 +242,10 @@ public class MoveAxiomsWizard extends Wizard implements MoveAxiomsModel {
         }
         targetEditorKit.getOWLModelManager().applyChanges(changes);
         if(targetOntologyID != null && editorKit.getOWLModelManager().getOWLOntologyManager().contains(targetOntologyID)) {
-            JOptionPane.showMessageDialog(getOwner(), "Axioms successfully " + moveType.getCompletedName(), "Finished", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(getOwner(),
+                    i18n("i18n.owl.dialog.moveAxioms.finishedMessagePrefix", "Axioms successfully ") + moveType.getCompletedName(),
+                    i18n("i18n.owl.dialog.moveAxioms.finishedTitle", "Finished"),
+                    JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -283,4 +287,8 @@ public class MoveAxiomsWizard extends Wizard implements MoveAxiomsModel {
 //        this.addToTargetOntology = addToTargetOntology;
 //    }
 
+    private static String i18n(String key, String fallback) {
+        String value = ProtegeProperties.getInstance().getProperty(key);
+        return value != null ? value : fallback;
+    }
 }

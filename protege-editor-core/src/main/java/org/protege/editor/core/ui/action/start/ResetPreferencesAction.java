@@ -1,6 +1,7 @@
 package org.protege.editor.core.ui.action.start;
 
 import org.protege.editor.core.ProtegeApplication;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.prefs.JavaBackedPreferencesImpl;
 import org.slf4j.LoggerFactory;
 
@@ -38,7 +39,7 @@ public class ResetPreferencesAction extends AltStartupAction {
 			int ret = JOptionPane.showConfirmDialog(
 					getParent(),
 					scroller,
-					"Reset Preferences?",
+					ProtegeProperties.getInstance().getProperty("i18n.core.resetPreferences.confirmTitle"),
 					JOptionPane.YES_NO_OPTION,
 					JOptionPane.QUESTION_MESSAGE);
 			if (ret == JOptionPane.YES_OPTION) {
@@ -48,7 +49,10 @@ public class ResetPreferencesAction extends AltStartupAction {
 				p.sync();
 				p.flush();
 				q.flush();
-				JOptionPane.showMessageDialog(getParent(), "Preferences Reset");
+				JOptionPane.showMessageDialog(getParent(),
+                                              ProtegeProperties.getInstance().getProperty("i18n.core.resetPreferences.doneMessage"),
+                                              ProtegeProperties.getInstance().getProperty("i18n.dialog.informationTitle"),
+                                              JOptionPane.INFORMATION_MESSAGE);
 				ProtegeApplication.handleQuit();
 			}
 		}

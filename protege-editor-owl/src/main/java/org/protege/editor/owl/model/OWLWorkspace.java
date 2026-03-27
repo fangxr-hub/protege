@@ -77,13 +77,9 @@ import java.util.List;
  */
 public class OWLWorkspace extends TabbedWorkspace implements SendErrorReportHandler, HasBreadcrumbTrailProvider {
 
-    public static final String REASONER_INITIALIZE = "Start reasoner";
+    private static final String REASONER_MENU_ID = "org.protege.editor.owl.menu.Reasoner";
 
-    public static final String REASONER_RESYNC = "Synchronize reasoner";
-
-    public static final String REASONER_STOP = "Stop reasoner";
-
-    public static final String REASONER_EXPLAIN = "Explain inconsistent ontology";
+    private static final String WINDOW_MENU_ID = "org.protege.editor.core.application.menu.window";
 
     private static final String WINDOW_MODIFIED = "Window.documentModified";
 
@@ -456,7 +452,7 @@ public class OWLWorkspace extends TabbedWorkspace implements SendErrorReportHand
         }
         JMenu windowMenu = menu.get();
         windowMenu.addSeparator();
-        windowMenu.add(new AbstractAction("Refresh user interface") {
+        windowMenu.add(new AbstractAction(org.protege.editor.core.ProtegeProperties.getInstance().getProperty("i18n.owl.menu.refreshUI", "Refresh user interface")) {
             public void actionPerformed(ActionEvent e) {
                 refreshComponents();
             }
@@ -547,25 +543,25 @@ public class OWLWorkspace extends TabbedWorkspace implements SendErrorReportHand
         reasonerMenu.removeAll();
 
         startReasonerAction.setEditorKit(getOWLEditorKit());
-        startReasonerAction.putValue(Action.NAME, REASONER_INITIALIZE);
+        startReasonerAction.putValue(Action.NAME, org.protege.editor.core.ProtegeProperties.getInstance().getProperty("i18n.owl.reasoner.start", "Start reasoner"));
         reasonerMenu.add(startReasonerAction);
 
         synchronizeReasonerAction.setEditorKit(getOWLEditorKit());
-        synchronizeReasonerAction.putValue(Action.NAME, REASONER_RESYNC);
+        synchronizeReasonerAction.putValue(Action.NAME, org.protege.editor.core.ProtegeProperties.getInstance().getProperty("i18n.owl.reasoner.synchronize", "Synchronize reasoner"));
         reasonerMenu.add(synchronizeReasonerAction);
 
         stopReasonerAction.setEditorKit(getOWLEditorKit());
-        stopReasonerAction.putValue(Action.NAME, REASONER_STOP);
+        stopReasonerAction.putValue(Action.NAME, org.protege.editor.core.ProtegeProperties.getInstance().getProperty("i18n.owl.reasoner.stop", "Stop reasoner"));
         reasonerMenu.add(stopReasonerAction);
 
         explainInconsistentOntologyAction.setEditorKit(getOWLEditorKit());
-        explainInconsistentOntologyAction.putValue(Action.NAME, REASONER_EXPLAIN);
+        explainInconsistentOntologyAction.putValue(Action.NAME, org.protege.editor.core.ProtegeProperties.getInstance().getProperty("i18n.owl.reasoner.explainInconsistentOntology", "Explain inconsistent ontology"));
         explainInconsistentOntologyAction.setEnabled(false);
         reasonerMenu.add(explainInconsistentOntologyAction);
 
         ConfigureReasonerAction configureAction = new ConfigureReasonerAction();
         configureAction.setEditorKit(getOWLEditorKit());
-        configureAction.putValue(Action.NAME, "Configure...");
+        configureAction.putValue(Action.NAME, org.protege.editor.core.ProtegeProperties.getInstance().getProperty("i18n.owl.reasoner.configure", "Configure..."));
         reasonerMenu.add(configureAction);
 
         if (extraReasonerMenuActions != null && extraReasonerMenuActions.size() > 0) {
@@ -628,22 +624,28 @@ public class OWLWorkspace extends TabbedWorkspace implements SendErrorReportHand
 
 
     private static java.util.Optional<JMenu> getReasonerMenu(JMenuBar menuBar) {
-        return getMenu(menuBar, "Reasoner");
+        return getMenu(menuBar, REASONER_MENU_ID, "Reasoner");
     }
 
 
     private static java.util.Optional<JMenu> getWindowMenu(JMenuBar menuBar) {
-        return getMenu(menuBar, "Window");
+        return getMenu(menuBar, WINDOW_MENU_ID, "Window");
     }
 
-    private static java.util.Optional<JMenu> getMenu(JMenuBar menuBar, String name) {
+    private static java.util.Optional<JMenu> getMenu(JMenuBar menuBar, String defaultText) {
+        return getMenu(menuBar, "", defaultText);
+    }
+
+    private static java.util.Optional<JMenu> getMenu(JMenuBar menuBar, String menuId, String defaultText) {
         for (int i = 0; i < menuBar.getMenuCount(); i++) {
             JMenu menu = menuBar.getMenu(i);
             if (menu != null) {
-                if (menu.getText() != null) {
-                    if (menu.getText().equals(name)) {
-                        return java.util.Optional.of(menu);
-                    }
+                if (!menuId.isEmpty() && menuId.equals(menu.getName())) {
+                    return java.util.Optional.of(menu);
+                }
+                String menuText = menu.getText();
+                if (menuText != null && menuText.equals(defaultText)) {
+                    return java.util.Optional.of(menu);
                 }
             }
         }
@@ -667,7 +669,7 @@ public class OWLWorkspace extends TabbedWorkspace implements SendErrorReportHand
         final OWLModelManager mngr = getOWLModelManager();
 
         // Install the active ontology combo box
-        ontologiesList.setToolTipText("Active ontology");
+        ontologiesList.setToolTipText(org.protege.editor.core.ProtegeProperties.getInstance().getProperty("i18n.owl.label.activeOntology", "Active ontology"));
         ontologiesList.setRenderer(new OWLOntologyCellRenderer(getOWLEditorKit()));
         rebuildOntologyDropDown();
 

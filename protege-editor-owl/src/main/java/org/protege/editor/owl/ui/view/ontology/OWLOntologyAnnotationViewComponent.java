@@ -1,6 +1,7 @@
 package org.protege.editor.owl.ui.view.ontology;
 
 import com.google.common.base.Optional;
+import org.protege.editor.core.ProtegeProperties;
 import org.protege.editor.core.ui.error.ErrorLogPanel;
 import org.protege.editor.core.ui.util.AugmentedJTextField;
 import org.protege.editor.core.ui.util.LinkLabel;
@@ -191,7 +192,11 @@ public class OWLOntologyAnnotationViewComponent extends AbstractOWLViewComponent
 
     private boolean showConfirmRenameDialog(OWLOntologyID id, Set<OWLEntity> entities) {
         String msg = getChangeEntityIRIsConfirmationMessage(id, entities);
-        int ret = JOptionPane.showConfirmDialog(this, msg, "Rename entities as well as ontology?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int ret = JOptionPane.showConfirmDialog(this,
+                                               msg,
+                                               ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.renameOntology.title"),
+                                               JOptionPane.YES_NO_OPTION,
+                                               JOptionPane.QUESTION_MESSAGE);
         return ret == JOptionPane.YES_OPTION;
     }
 
@@ -200,13 +205,11 @@ public class OWLOntologyAnnotationViewComponent extends AbstractOWLViewComponent
     }
 
     private String getChangeEntityIRIsConfirmationMessage(OWLOntologyID id, Set<OWLEntity> entities) {
-        return "<html><body>You have renamed the ontology from<br>" +
-                "" + initialOntologyID.getOntologyIRI().get().toString() + "<br>" +
-                "to<br>" +
-                "" + id.getOntologyIRI().get().toString() + ".<br>" +
-                "<br>" +
-                "<b>There are " + NumberFormat.getIntegerInstance().format(entities.size()) + " entities whose IRIs start with the original ontology IRI. Would you also like to rename these entities<br>" +
-                "so that their IRIs start with the new ontology IRI?</b></body></html>";
+        String template = ProtegeProperties.getInstance().getProperty("i18n.owl.dialog.renameOntology.messageHtml");
+        String oldOntologyIri = initialOntologyID.getOntologyIRI().get().toString();
+        String newOntologyIri = id.getOntologyIRI().get().toString();
+        String entityCount = NumberFormat.getIntegerInstance().format(entities.size());
+        return String.format(template, oldOntologyIri, newOntologyIri, entityCount);
     }
 
 

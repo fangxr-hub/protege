@@ -22,4 +22,10 @@ _posts
 _menus
 assets
 installation
-
+.DS_Store
+.vscode/
+.tools/
+mvn-settings.xml
+update_frame_i18n.py
+protege-desktop/src/main/env/os-x/Resources/ProtegeApp.icns
+protege-desktop/src/main/resources/app/ProtegeApp.icns
